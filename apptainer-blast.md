@@ -16,13 +16,7 @@ exercises: 30
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::: keypoints
 
-- We can use containers to run software without having to install it
-- The commands we use are very similar to those we would use natively
-- Apptainer handles a lot of complexity around data and internet access for us
-
-::::::::::::::::::::::::::::::::::::::::::::::::
 
 We have now learned enough to be able to use Sigularity to deploy software without us
 needed to install the software itself on the host system.
@@ -297,5 +291,13 @@ In addition, we were able to use the tools in the container image provided by NC
 to do any work to install the software irrespective of the computing platform that we are using.
 (In fact, the example this is based on runs the pipeline using Docker on a cloud computing platform
 rather than on your local system.)
+
+:::::::::::::::::::::::::::::::::::::: keypoints
+
+- We can use containers to run software without having to install it
+- The commands we use are very similar to those we would use natively
+- Apptainer handles a lot of complexity around data and internet access for us
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 {% include links.md %}

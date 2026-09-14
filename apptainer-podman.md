@@ -6,23 +6,21 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Learn how to run Apptainer containers based on Docker images.
+- Learn how to run Apptainer containers based on Podman/Docker images.
+- Learn how to build Apptainer containers.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How do I use Docker images with Apptainer?
+- How do I use Podman/Docker images with Apptainer?
+- How do I build container images to use with Apptainer?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::: keypoints
 
-- Apptainer can start a container from a Docker image which can be pulled directly from Docker Hub.
 
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Using Docker images with Apptainer
+## Using Podman/Docker images with Apptainer
 
 Apptainer can also start containers directly from Docker container images, opening up access to a huge number of existing container images available on [Docker Hub](https://hub.docker.com/) and other registries.
 
@@ -152,6 +150,21 @@ Apptainer> echo $SHELL
 You can run the Python console from your container shell simply by running the `python` command.
 
 ::::::::::::::::::::::::
+
+## How do I build Apptainer image files?
+
+TODO : Use Podman/Docker
+
+## Importing container images from archive files
+
+TODO: add details on importing archive files
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::: keypoints
+
+- Apptainer can start a container from a Podman/Docker image which can be pulled directly from a container registry.
+- Even if you are running containers using Apptainer, you should build container images using Podman/Docker.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
