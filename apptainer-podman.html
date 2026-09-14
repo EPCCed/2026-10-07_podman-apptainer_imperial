@@ -280,7 +280,7 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#using-docker-images-with-apptainer">Using Docker images with Apptainer</a></li>
+        <ul><li><a href="#using-podmandocker-images-with-apptainer">Using Podman/Docker images with Apptainer</a></li>
 <li><a href="#references">References</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
@@ -383,7 +383,8 @@
 <div class="card-body">
 <div class="inner">
 <h3 class="card-title">Questions</h3>
-<ul><li>How do I use Docker images with Apptainer?</li>
+<ul><li>How do I use Podman/Docker images with Apptainer?</li>
+<li>How do I build container images to use with Apptainer?</li>
 </ul></div>
 </div>
 </div>
@@ -391,25 +392,15 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Learn how to run Apptainer containers based on Docker images.</li>
+<ul><li>Learn how to run Apptainer containers based on Podman/Docker
+images.</li>
+<li>Learn how to build Apptainer containers.</li>
 </ul></div>
 </div>
 </div>
 </div>
 </div>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<span class="callout-header">Key Points</span>
-<div class="callout-inner">
-<div class="callout-content">
-<ul><li>Apptainer can start a container from a Docker image which can be
-pulled directly from Docker Hub.</li>
-</ul></div>
-</div>
-</div>
-<section><h2 class="section-heading" id="using-docker-images-with-apptainer">Using Docker images with Apptainer<a class="anchor" aria-label="anchor" href="#using-docker-images-with-apptainer"></a></h2>
+<section><h2 class="section-heading" id="using-podmandocker-images-with-apptainer">Using Podman/Docker images with Apptainer<a class="anchor" aria-label="anchor" href="#using-podmandocker-images-with-apptainer"></a></h2>
 <hr class="half-width"><p>Apptainer can also start containers directly from Docker container
 images, opening up access to a huge number of existing container images
 available on <a href="https://hub.docker.com/" class="external-link">Docker Hub</a> and other
@@ -587,6 +578,37 @@ run an executable within a container. We could, therefore, use the
 running the <code>python</code> command.</p>
 </div>
 </div>
+</div>
+</div>
+<div id="open-a-shell-within-a-python-container" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<span class="callout-header">Discussion</span>
+<div id="open-a-shell-within-a-python-container" class="callout-inner">
+<h3 class="callout-title">Open a shell within a Python container<em>
+(continued)</em>
+</h3>
+<div class="callout-content">
+<p>## How do I build Apptainer image files?</p>
+<p>TODO : Use Podman/Docker</p>
+<p>## Importing container images from archive files</p>
+<p>TODO: add details on importing archive files</p>
+</div>
+</div>
+</div>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<span class="callout-header">Key Points</span>
+<div class="callout-inner">
+<div class="callout-content">
+<ul><li>Apptainer can start a container from a Podman/Docker image which can
+be pulled directly from a container registry.</li>
+<li>Even if you are running containers using Apptainer, you should build
+container images using Podman/Docker.</li>
+</ul></div>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
