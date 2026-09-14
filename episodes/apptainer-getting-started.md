@@ -7,7 +7,9 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Understand what Apptainer is and when you might want to use it.
-- Undertake your first run of a simple Apptainer container.
+- Run a simple Apptainer container.
+- Learn how to access local files inside an Apptainer container.
+- Learn how to set the environment inside an Apptainer container.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -17,19 +19,11 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Apptainer is another container platform and it is often used in cluster/HPC/research environments.
-- Apptainer has a different security model to other container platforms, one of the key reasons that it is well suited to HPC and cluster environments.
-- Apptainer has its own container image format (SIF).
-- The `apptainer` command can be used to pull images from Sylabs Cloud Library and run a container from an image file.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The episodes in this lesson will introduce you to the [Apptainer](https://sylabs.io/apptainer/) container platform and demonstrate how to set up and use Apptainer.
 
 ## What is Apptainer?
-
 
 [Apptainer](https://apptainer.org/) (or [Singularity](https://sylabs.io/singularity/), we'll get to this in a minute...) is another container platform.
 
@@ -217,3 +211,20 @@ This seems very simple but already, we have downloaded a container image that is
 OS than is available on ARCHER2 that also contains software not available on ARCHER2 (`cowsay` and
 `lolcat`) and been able to run this on the ARCHER2 system without needing to install anything ourselves
 and without the container image having to know anything specific about how ARCHER2 is configured.
+
+## Accessing local files in Apptainer containers
+
+TODO...
+
+## Setting the environment in Apptainer containers
+
+TODO...
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Apptainer is another container platform and it is often used in cluster/HPC/research environments.
+- Apptainer has a different security model to other container platforms, one of the key reasons that it is well suited to HPC and cluster environments.
+- Apptainer has its own container image format (SIF).
+- The `apptainer` command can be used to pull images from Sylabs Cloud Library and run a container from an image file.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
