@@ -1,0 +1,219 @@
+---
+title: Apptainer Getting Started
+teaching: 15
+exercises: 10
+---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Understand what Apptainer is and when you might want to use it.
+- Undertake your first run of a simple Apptainer container.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- What is Apptainer and why might I want to use it?
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- Apptainer is another container platform and it is often used in cluster/HPC/research environments.
+- Apptainer has a different security model to other container platforms, one of the key reasons that it is well suited to HPC and cluster environments.
+- Apptainer has its own container image format (SIF).
+- The `apptainer` command can be used to pull images from Sylabs Cloud Library and run a container from an image file.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The episodes in this lesson will introduce you to the [Apptainer](https://sylabs.io/apptainer/) container platform and demonstrate how to set up and use Apptainer.
+
+## What is Apptainer?
+
+
+[Apptainer](https://apptainer.org/) (or [Singularity](https://sylabs.io/singularity/), we'll get to this in a minute...) is another container platform.
+
+in some ways, Apptainer is similar to Podman. However, in
+other ways, particularly in terms of the system's architecture, it is
+fundamentally different. These differences mean that Apptainer is
+particularly well-suited to running on shared platforms such as distributed,
+High Performance Computing (HPC) platforms.
+
+Apptainer runs containers from container images which, as we discussed, are essentially a
+virtual computer disk that contains all of the necessary software, libraries
+and configuration to run one or more applications or undertake a particular
+task, e.g. to support a specific research project. This saves you the time and
+effort of installing and configuring software on your own system or setting up
+a new computer from scratch, as you can simply run a Apptainer container from
+an image and have a virtual environment that is equivalent to the one used by
+the person who created the image. Apptainer/Apptainer is increasingly widely
+used in the research community for supporting research projects due to its
+support for shared computing platforms.
+
+System administrators will not, generally, install Docker on shared computing
+platforms such as lab desktops, research clusters or HPC platforms because the
+design of Docker presents potential security issues for shared platforms with
+multiple users. Apptainer, on the other hand, can be run by
+end-users entirely within "user space", that is, no special administrative
+privileges need to be assigned to a user in order for them to run and interact
+with containers on a platform where Apptainer has been installed.
+
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## A little history...
+
+Singularity is open source software and was initially developed within the research
+community. A couple of years ago, the project was "forked" something that is
+not uncommon within the open source software community, with the software
+effectively splitting into two projects going in different directions. The Singularity fork
+is being developed by a commercial entity, [Sylabs.io](https://sylabs.io/) who
+provide both the free, open source [SingularityCE (Community
+Edition)](https://sylabs.io/singularity) and Pro/Enterprise editions of the
+software. The original open source Singularity project has recently been
+[renamed to
+Apptainer](https://apptainer.org/news/community-announcement-20211130/) and has
+moved into the Linux Foundation. While earlier versions of this course
+focused on versions of Singularity released before the project fork, we now
+base the course material on recent Apptainer releases. Despite this, the basic
+features of Apptainer/Singularity remain the same and so this material is
+equally applicable whether you're working with a recent Apptainer release or a
+slightly older Singularity version. Nonetheless, it is useful to be aware of
+this history and that you may see both Apptainer and Singularity being used
+within the research community over the coming months and years.
+
+Another point to note is that some systems that have a recent Singularity release
+installed may also provide a `apptainer` command that is simply a link to the
+`singularity` executable on the system. This helps to ensure workflows
+that use the original `singularity` command can continue to work as intended.
+
+For now, the remainder of this material refers to Apptainer but where you
+have a release of Singularity installed on your local system, you can simply
+replace references to `apptainer` with `singularity`, if you wish.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Checking Apptainer works
+
+[Login to Cirrus](https://docs.cirrus.ac.uk/user-guide/connecting/) using the
+login address `login.cirrus.ac.uk`:
+
+```bash
+ssh -i /path/to/ssh-key user@login.cirrus.ac.uk
+```
+
+Now check that the `apptainer` command is available in your terminal:
+
+```bash
+remote$ apptainer --version
+```
+
+```output
+apptainer version 1.4.2-1.el9
+```
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Loading a module
+
+HPC systems often use *modules* to provide access to software on the system so you may need to use the command:
+
+```bash
+remote$ module load apptainer
+```
+
+before you can use the `apptainer` command on remote systems. However, this depends on how the system is configured.
+You do not need to load a module on Cirrus. If in doubt, consult the documentation for the system you are using
+or contact the support team.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Images and containers: reminder
+
+A quick reminder on terminology: we refer to both *container images* and *containers*. What is the difference between these two terms? 
+
+*Container images* (sometimes just *images*) are bundles of files including an operating system, software and potentially data and other application-related files. They may sometimes be referred to as a *disk image* or *image* and they may be stored in different ways, perhaps as a single file, or as a group of files. Either way, we refer to this file, or collection of files, as an image.
+
+A *container* is a virtual environment that is based on a container image. That is, the files, applications, tools, etc that are available within a running container are determined by the image that the container is started from. It may be possible to start multiple container instances from an image. You could, perhaps, consider an image to be a form of template from which running container instances can be started.
+
+## Getting a container image and running a Apptainer container
+
+Apptainer uses the [Singularity Image Format (SIF)](https://apptainer.org/docs/user/main/cli/apptainer_sif.html) and container images are provided as single `SIF` files (usually with a `.sif` or `.img` filename extension). Apptainer container images can be pulled from the [Sylabs Cloud Library](https://cloud.sylabs.io/), a registry for Apptainer container images. Apptainer is also capable of running containers based on container images pulled from [Docker Hub](https://hub.docker.com/) and other Docker image repositories (e.g. [Quay.io](https://quay.io)). We will look at accessing container images from Docker Hub later in the course.
+
+
+### Pulling a container image from Sylabs Cloud Library
+
+Let's begin by creating a `test` directory, changing into it and _pulling_ an existing container image from Sylabs Cloud Library:
+
+```bash
+remote$ mkdir test
+remote$ cd test
+remote$ apptainer pull lolcow.sif library://lolcow
+```
+
+```output
+INFO:    Downloading library image
+ 90.4 MiB / 90.4 MiB [===============================================================================================================] 100.00% 90.4 MiB/s 1s
+```
+
+What just happened? We pulled a container image from a remote repository using the `apptainer pull` command and directed it to store the container image in a file using the name `lolcow.sif` in the current directory. If you run the `ls` command, you should see that the `lolcow.sif` file is now present in the current directory.
+
+```bash
+remote$ ls -lh
+```
+
+```output
+total 60M
+-rwxr-xr-x. 1 auser group 91M Jun 13  2023 lolcow.sif
+```
+
+### Running a Apptainer container
+
+We can now run a container based on the `lolcow.sif` container image:
+
+```bash
+remote$ apptainer run lolcow.sif
+```
+
+```output
+ ______________________________
+< Tue Jun 20 08:44:51 UTC 2023 >
+ ------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
+The above command ran a *lolcow* container based on the container image we downloaded from the online repository and the resulting output was shown. 
+
+What just happened? When we use the `apptainer run` command, Apptainer does three things:
+
+| 1. Starts a Running Container | 2. Performs Default Action | 3. Shuts Down the Container
+| --------------------|-----------------|----------------|
+| Starts a running container, based on the container image. Think of this as the "alive" or "inflated" version of the container -- it's actually doing something. | If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). |
+
+### Default action
+
+How did the container determine what to do when we ran it? What did running the container actually do to result in the displayed output?
+
+When you run a container from a Apptainer container image using the `apptainer run` command, the container runs the default run script that is embedded within the container image. This is a shell script that can be used to run commands, tools or applications stored within the container image on container startup. We can inspect the container image's run script using the `apptainer inspect` command:
+
+```bash
+remote$ apptainer inspect -r lolcow.sif
+```
+
+```output
+#!/bin/sh 
+
+    date  |  cowsay  |  lolcat
+
+```
+
+This shows us the script within the `lolcow.sif` image configured to run by default when we use the `apptainer run` command.
+
+This seems very simple but already, we have downloaded a container image that is built with a different
+OS than is available on ARCHER2 that also contains software not available on ARCHER2 (`cowsay` and
+`lolcat`) and been able to run this on the ARCHER2 system without needing to install anything ourselves
+and without the container image having to know anything specific about how ARCHER2 is configured.
