@@ -3,7 +3,7 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 
-This session aims to introduce the use of Podman containers with the goal of using them to effect reproducible computational environments. Such environments are useful for ensuring reproducible research outputs, for example.
+This session aims to introduce the use of Podman and Apptainer containers with the goal of using them to effect reproducible computational environments. Such environments are useful for ensuring reproducible research outputs, for example.
 
 ::::::::::::::::::::::::::::::::::::::  objectives
 
@@ -24,7 +24,7 @@ This session aims to introduce the use of Podman containers with the goal of usi
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-The practical work in this lesson is primarily aimed at using Podman on your own laptop. Beyond your laptop, software container technologies such as Podman can also be used in the cloud and on high performance computing (HPC) systems. Some of the material in this lesson will be applicable to those environments too.
+The practical work in this lesson is primarily aimed at using Podman on your own laptop and Apptainer on a remote HPC system. Beyond your laptop, software container technologies such as Podman can also be used in the cloud and on high performance computing (HPC) systems. Some of the material in this lesson will be applicable to those environments too.
 
 :::::::::::: callout
 
@@ -40,18 +40,6 @@ This change prompted the lesson maintainers to switch the lesson to `podman`, an
 
 ::::::::::::::::::::::::
 
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Containers on HPC systems
-
-On HPC systems it is more likely that *Apptainer* (formerly Singularity) rather than Podman or Docker will be the available container technology.
-If you are looking for a lesson on using Apptainer containers (instead of Docker), see this lesson on Singularity:
-
-- [Reproducible Computational Environments Using Containers: Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/)
-  
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::  prereq
 
@@ -96,7 +84,7 @@ descriptions and outputs shown match what you will see on your own computer,
 inconsistencies can occur.
 
 If you spot inconsistencies or encounter any problems, please do report them
-by [opening an issue][open a lesson issue] in the [GitHub repository][docker-introduction repository]
+by [opening an issue][open a lesson issue] in the [GitHub repository](https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial)
 for this lesson.
 
 
