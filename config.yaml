@@ -67,8 +67,7 @@ episodes:
 - creating-container-images.md
 - advanced-containers.md
 - docker-image-examples.md
-- apptainer-getting-started.md
-- apptainer-podman.md
+- apptainer-overview.md
 - apptainer-blast.md
 - reproduciblity.md
 
