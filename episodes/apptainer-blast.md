@@ -18,11 +18,9 @@ exercises: 30
 
 
 
-We have now learned enough to be able to use Sigularity to deploy software without us
-needed to install the software itself on the host system.
+We have now learned enough to be able to use Apptainer to deploy software on a remote HPC system without us needing to install the software itself on the host system.
 
-In this section we will demonstrate the use of a Apptainer container image that 
-provides the BLAST+ software.
+In this section we will demonstrate the use of a Apptainer container image that provides the BLAST+ bioinformatics software. The BLAST+ suite of software tools is typically complex to install from source by hand on a HPC system. Using containers we are able to avoid this complexity and get up and running with the software quickly. 
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -79,7 +77,7 @@ NCBI provide official Docker containers with the BLAST+ software hosted on Docke
 a Apptainer container image from the Docker container image with:
 
 ```bash
-remote$ apptainer pull ncbi-blast.sif docker://ncbi/blast
+remote$ apptainer pull ncbi-blast.sif docker://docker.io/ncbi/blast
 ```
 
 ```output
@@ -146,7 +144,7 @@ use these downloaded data to create a custom BLAST database by using a container
 the command `makeblastdb` with the correct options.
 
 ```bash
-remote$ apptainer exec ncbi-blast.sif \
+remote$ apptainer exec --cleanenv ncbi-blast.sif \
     makeblastdb -in fasta/nurse-shark-proteins.fsa -dbtype prot \
     -parse_seqids -out nurse-shark-proteins -title "Nurse shark proteins" \
     -taxid 7801 -blastdb_version 5
@@ -168,7 +166,7 @@ To verify the newly created BLAST database above, you can run the
 the accessions, sequence length, and common name of the sequences in the database.
 
 ```bash
-remote$ apptainer exec ncbi-blast.sif \
+remote$ apptainer exec --cleanenv ncbi-blast.sif \
     blastdbcmd -entry all -db nurse-shark-proteins -outfmt "%a %l %T"
 ```
 
@@ -189,7 +187,7 @@ Now we have our database we can run queries against it.
 Lets execute a query on our database using the `blastp` command:
 
 ```bash
-remote$ apptainer exec ncbi-blast.sif \
+remote$ apptainer exec --cleanenv ncbi-blast.sif \
     blastp -query queries/P01349.fsa -db nurse-shark-proteins \
     -out results/blastp.out
 ```
@@ -231,7 +229,7 @@ available online. For example, to see which databases are available online in th
 Platform (GCP):
 
 ```bash
-remote$ apptainer exec ncbi-blast.sif update_blastdb.pl --showall pretty --source gcp
+remote$ apptainer exec --cleanenv ncbi-blast.sif update_blastdb.pl --showall pretty --source gcp
 ```
 
 ```output
@@ -253,7 +251,7 @@ refseq_rna                                                   NCBI Transcript Ref
 Similarly, for databases hosted at NCBI:
 
 ```bash
-remote$ apptainer exec ncbi-blast.sif update_blastdb.pl --showall pretty --source ncbi
+remote$ apptainer exec --cleanenv ncbi-blast.sif update_blastdb.pl --showall pretty --source ncbi
 ```
 
 ```output
@@ -280,8 +278,8 @@ you needing to set them up even though you were running using containers:
 1. We did not need to explicitly bind any files/directories in to the container. This worked
    because Apptainer automatically binds the current directory into the running container, so
    any data in the current directory (or its subdirectories) will generally be available in
-   running Apptainer containers. (If you have used Docker containers, you will notice that
-   this is different from the default behaviour there.)
+   running Apptainer containers. (Note, this is different from the behaviour of the Podman 
+   containers we were using earlier in this workshop.)
 2. Access to the internet is automatically available within the running container in the same
    way as it is on the host system without us needed to specify any additional options.
 3. Files and data we create within the container have the right ownership and permissions for
