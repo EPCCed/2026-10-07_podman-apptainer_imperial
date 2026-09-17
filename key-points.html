@@ -327,7 +327,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="apptainer-getting-started.html">9. Apptainer Getting Started</a>
+        <a href="apptainer-overview.html">9. Overview of Apprainer</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -339,7 +339,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="apptainer-podman.html">10. Using Docker Images with Apptainer</a>
+        <a href="apptainer-blast.html">10. Using Apptainer to Run BLAST+</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -351,19 +351,7 @@
 <div class="accordion accordion-flush" id="accordionFlush12">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading12">
-        <a href="apptainer-blast.html">11. Using Apptainer to Run BLAST+</a>
-    </div>
-<!--/div.accordion-header-->
-
-  </div>
-<!--/div.accordion-item-->
-</div>
-<!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush13">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading13">
-        <a href="reproduciblity.html">12. Containers in Research Workflows: Reproducibility and Granularity</a>
+        <a href="reproduciblity.html">11. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -520,24 +508,18 @@ images by using the <code>COPY</code> instruction in your
 <ul>
 <li>There are many ways you might use Docker and existing container
 images in your research project.</li>
-</ul></section><section id="apptainer-getting-started"><h2 class="section-heading"><a href="apptainer-getting-started.html">Apptainer Getting Started</a></h2>
+</ul></section><section id="apptainer-overview"><h2 class="section-heading"><a href="apptainer-overview.html">Overview of Apprainer</a></h2>
 <hr class="half-width">
 <ul>
 <li>Apptainer is another container platform and it is often used in
 cluster/HPC/research environments.</li>
-<li>Apptainer has a different security model to other container
-platforms, one of the key reasons that it is well suited to HPC and
-cluster environments.</li>
+<li>Apptainer has a security model suited to shared access systems -
+users can only access data they already have access to.</li>
 <li>Apptainer has its own container image format (SIF).</li>
 <li>The <code>apptainer</code> command can be used to pull images from
-Sylabs Cloud Library and run a container from an image file.</li>
-</ul></section><section id="apptainer-podman"><h2 class="section-heading"><a href="apptainer-podman.html">Using Docker Images with Apptainer</a></h2>
-<hr class="half-width">
-<ul>
-<li>Apptainer can start a container from a Podman/Docker image which can
-be pulled directly from a container registry.</li>
-<li>Even if you are running containers using Apptainer, you should build
-container images using Podman/Docker.</li>
+online repositories and convert them into SIF files automatically.</li>
+<li>You can use the <code>-B</code> option to make host files available
+inside a running container.</li>
 </ul></section><section id="apptainer-blast"><h2 class="section-heading"><a href="apptainer-blast.html">Using Apptainer to Run BLAST+</a></h2>
 <hr class="half-width">
 <ul>
@@ -605,9 +587,9 @@ allows us to capture our work and enables reproducibility.</li>
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/docker-introduction/key-points.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/key-points.html",
-  "dateCreated": "2026-09-14",
-  "dateModified": "2026-09-14",
-  "datePublished": "2026-09-14"
+  "dateCreated": "2026-09-17",
+  "dateModified": "2026-09-17",
+  "datePublished": "2026-09-17"
 }
 
   </script><script>
