@@ -161,9 +161,15 @@ Adding sequences from FASTA; added 7 sequences in 0.0199499 seconds.
 
 ```
 
-To verify the newly created BLAST database above, you can run the
-`blastdbcmd -entry all -db nurse-shark-proteins -outfmt "%a %l %T"` command to display
-the accessions, sequence length, and common name of the sequences in the database.
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## `--cleanenv` option
+
+By default, Apptainer makes sure most of your host environment settings are available in the running container. Full details of what Apptainer does [are available in the User Guide](https://apptainer.org/docs/user/main/environment_and_metadata.html). However, this can cause compatibility problems so it is often best to start in the running container with a clean environment and only add environment settings as needed. The `--cleanenv` option to Apptainer tells the running container to not take environment settings from the host.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+To verify the newly created BLAST database above, you can run the `blastdbcmd -entry all -db nurse-shark-proteins -outfmt "%a %l %T"` command to display the accessions, sequence length, and common name of the sequences in the database.
 
 ```bash
 remote$ apptainer exec --cleanenv ncbi-blast.sif \
