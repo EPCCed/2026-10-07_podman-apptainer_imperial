@@ -261,7 +261,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="apptainer-overview.html">9. Overview of Apprainer</a>
+        <a href="apptainer-overview.html">9. Overview of Apptainer</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -350,7 +350,7 @@
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/apptainer-overview.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Overview of Apprainer...
+          Previous: Overview of Apptainer...
         </a>
         <a class="chapter-link float-end" href="../instructor/reproduciblity.html" rel="next">
           Next: Containers in Research Workflows:...
@@ -359,7 +359,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Using Apptainer to Run BLAST+</h1>
-        <p>Last updated on 2026-09-14 |
+        <p>Last updated on 2026-09-17 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/apptainer-blast.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -396,11 +396,14 @@ tool.</li>
 </div>
 </div>
 </div>
-<p>We have now learned enough to be able to use Sigularity to deploy
-software without us needed to install the software itself on the host
-system.</p>
+<p>We have now learned enough to be able to use Apptainer to deploy
+software on a remote HPC system without us needing to install the
+software itself on the host system.</p>
 <p>In this section we will demonstrate the use of a Apptainer container
-image that provides the BLAST+ software.</p>
+image that provides the BLAST+ bioinformatics software. The BLAST+ suite
+of software tools is typically complex to install from source by hand on
+a HPC system. Using containers we are able to avoid this complexity and
+get up and running with the software quickly.</p>
 <div id="source-material" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -462,7 +465,7 @@ Docker container image with:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="ex">remote$</span> apptainer pull ncbi-blast.sif docker://ncbi/blast</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="ex">remote$</span> apptainer pull ncbi-blast.sif docker://docker.io/ncbi/blast</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -529,7 +532,7 @@ database by using a container to run the command
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="ex">remote$</span> apptainer exec ncbi-blast.sif <span class="dt">\</span></span>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a><span class="ex">remote$</span> apptainer exec <span class="at">--cleanenv</span> ncbi-blast.sif <span class="dt">\</span></span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a>    makeblastdb <span class="at">-in</span> fasta/nurse-shark-proteins.fsa <span class="at">-dbtype</span> prot <span class="dt">\</span></span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1" aria-label="code-block-7-3"></a>    <span class="at">-parse_seqids</span> <span class="at">-out</span> nurse-shark-proteins <span class="at">-title</span> <span class="st">"Nurse shark proteins"</span> <span class="dt">\</span></span>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1" aria-label="code-block-7-4"></a>    <span class="at">-taxid</span> 7801 <span class="at">-blastdb_version</span> 5</span></code></pre>
@@ -546,6 +549,25 @@ Maximum file size: 3000000000B
 Adding sequences from FASTA; added 7 sequences in 0.0199499 seconds.
 </code></pre>
 </div>
+<div id="callout2" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>## <code>--cleanenv</code> option</p>
+<p>By default, Apptainer makes sure most of your host environment
+settings are available in the running container. Full details of what
+Apptainer does <a href="https://apptainer.org/docs/user/main/environment_and_metadata.html" class="external-link">are
+available in the User Guide</a>. However, this can cause compatibility
+problems so it is often best to start in the running container with a
+clean environment and only add environment settings as needed. The
+<code>--cleanenv</code> option to Apptainer tells the running container
+to not take environment settings from the host.</p>
+</div>
+</div>
+</div>
 <p>To verify the newly created BLAST database above, you can run the
 <code>blastdbcmd -entry all -db nurse-shark-proteins -outfmt "%a %l %T"</code>
 command to display the accessions, sequence length, and common name of
@@ -553,7 +575,7 @@ the sequences in the database.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">remote$</span> apptainer exec ncbi-blast.sif <span class="dt">\</span></span>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">remote$</span> apptainer exec <span class="at">--cleanenv</span> ncbi-blast.sif <span class="dt">\</span></span>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a>    blastdbcmd <span class="at">-entry</span> all <span class="at">-db</span> nurse-shark-proteins <span class="at">-outfmt</span> <span class="st">"%a %l %T"</span></span></code></pre>
 </div>
 <div class="codewrapper">
@@ -574,7 +596,7 @@ command:</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="ex">remote$</span> apptainer exec ncbi-blast.sif <span class="dt">\</span></span>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="ex">remote$</span> apptainer exec <span class="at">--cleanenv</span> ncbi-blast.sif <span class="dt">\</span></span>
 <span id="cb11-2"><a href="#cb11-2" tabindex="-1" aria-label="code-block-11-2"></a>    blastp <span class="at">-query</span> queries/P01349.fsa <span class="at">-db</span> nurse-shark-proteins <span class="dt">\</span></span>
 <span id="cb11-3"><a href="#cb11-3" tabindex="-1" aria-label="code-block-11-3"></a>    <span class="at">-out</span> results/blastp.out</span></code></pre>
 </div>
@@ -616,7 +638,7 @@ databases are available online in the Google Compute Platform (GCP):</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="ex">remote$</span> apptainer exec ncbi-blast.sif update_blastdb.pl <span class="at">--showall</span> pretty <span class="at">--source</span> gcp</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="ex">remote$</span> apptainer exec <span class="at">--cleanenv</span> ncbi-blast.sif update_blastdb.pl <span class="at">--showall</span> pretty <span class="at">--source</span> gcp</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -639,7 +661,7 @@ refseq_rna                                                   NCBI Transcript Ref
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a><span class="ex">remote$</span> apptainer exec ncbi-blast.sif update_blastdb.pl <span class="at">--showall</span> pretty <span class="at">--source</span> ncbi</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a><span class="ex">remote$</span> apptainer exec <span class="at">--cleanenv</span> ncbi-blast.sif update_blastdb.pl <span class="at">--showall</span> pretty <span class="at">--source</span> ncbi</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -666,8 +688,8 @@ even though you were running using containers:</p>
 container. This worked because Apptainer automatically binds the current
 directory into the running container, so any data in the current
 directory (or its subdirectories) will generally be available in running
-Apptainer containers. (If you have used Docker containers, you will
-notice that this is different from the default behaviour there.)</li>
+Apptainer containers. (Note, this is different from the behaviour of the
+Podman containers we were using earlier in this workshop.)</li>
 <li>Access to the internet is automatically available within the running
 container in the same way as it is on the host system without us needed
 to specify any additional options.</li>
@@ -704,7 +726,7 @@ access for us</li>
       <div class="d-none d-sm-none d-md-block">
         <a class="chapter-link" href="../instructor/apptainer-overview.html" rel="prev">
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>
-          Previous: Overview of Apprainer...
+          Previous: Overview of Apptainer...
         </a>
         <a class="chapter-link float-end" href="../instructor/reproduciblity.html" rel="next">
           Next: Containers in Research Workflows:...
@@ -755,7 +777,7 @@ access for us</li>
   "url": "https://preview.carpentries.org/docker-introduction/instructor/apptainer-blast.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/instructor/apptainer-blast.html",
   "dateCreated": "2026-09-17",
-  "dateModified": "2026-09-14",
+  "dateModified": "2026-09-17",
   "datePublished": "2026-09-17"
 }
 
