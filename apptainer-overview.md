@@ -1,5 +1,5 @@
 ---
-title: Overview of Apprainer
+title: Overview of Apptainer
 teaching: 15
 exercises: 10
 ---
