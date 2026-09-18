@@ -62,7 +62,7 @@ Writing manifest to image destination
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Docker Hub
+## Container registries
 
 Where did the `hello` container image come from? If you look carefully in the 
 output when you pulled the image, you will see that it came from the Quay container
@@ -70,7 +70,7 @@ registry, which is a place to share container images with other people. Specific
 Podman expanded the short container name to `quay.io/podman/hello`.
 Other container registries exist, sometimes with differing use cases. Docker Hub is probably the
 most widely used. Although under the 'Docker' name, Docker Hub can be used by any
-compatible containerization service, including Podman and Singularity. We can get Docker's
+compatible containerization service, including Podman and Apptainer. We can get Docker's
 version of a `hello` image by instead pulling `docker.io/hello-world`.
 
 
@@ -170,10 +170,9 @@ image is quicker to download.
 Try downloading the `alpine` container image and using it to run a container. You can do it in
 two steps, or one. What are they?
 
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 What happened when you ran the Alpine Podman container?
+
+:::::::::::::::  solution
 
 ```bash
 $ podman container run alpine
@@ -191,6 +190,10 @@ $ podman container run alpine cat /etc/os-release
 
 You should see the output of the `cat /etc/os-release` command, which prints out
 the version of Alpine Linux that this container is using and a few additional bits of information.
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
