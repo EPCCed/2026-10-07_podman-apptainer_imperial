@@ -317,7 +317,7 @@
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="docker-image-examples.html">8. Examples of Using Container Images in Practice</a>
+        <a href="apptainer-overview.html">8. Overview of Apptainer</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -329,7 +329,7 @@
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="apptainer-overview.html">9. Overview of Apptainer</a>
+        <a href="apptainer-blast.html">9. Using Apptainer to Run BLAST+</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -341,19 +341,7 @@
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="apptainer-blast.html">10. Using Apptainer to Run BLAST+</a>
-    </div>
-<!--/div.accordion-header-->
-
-  </div>
-<!--/div.accordion-item-->
-</div>
-<!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush12">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading12">
-        <a href="reproduciblity.html">11. Containers in Research Workflows: Reproducibility and Granularity</a>
+        <a href="reproduciblity.html">10. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -1092,7 +1080,7 @@ prompt.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Suppose we pick the <code>podman image build</code> command:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -1256,7 +1244,7 @@ command followed by the <code>--help</code> flag.</li>
 </div>
 </section></section><section id="aio-running-containers"><p>Content from <a href="running-containers.html">Exploring and Running Containers</a></p>
 <hr>
-<p>Last updated on 2026-06-17 |
+<p>Last updated on 2026-09-18 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/running-containers.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
@@ -1345,13 +1333,13 @@ Copying config sha256:83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720
 Writing manifest to image destination
 83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32</code></pre>
 </div>
-<div id="docker-hub" class="callout">
+<div id="container-registries" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div id="docker-hub" class="callout-inner">
-<h3 class="callout-title">Docker Hub</h3>
+<div id="container-registries" class="callout-inner">
+<h3 class="callout-title">Container registries</h3>
 <div class="callout-content">
 <p>Where did the <code>hello</code> container image come from? If you
 look carefully in the output when you pulled the image, you will see
@@ -1361,7 +1349,7 @@ short container name to <code>quay.io/podman/hello</code>. Other
 container registries exist, sometimes with differing use cases. Docker
 Hub is probably the most widely used. Although under the ‘Docker’ name,
 Docker Hub can be used by any compatible containerization service,
-including Podman and Singularity. We can get Docker’s version of a
+including Podman and Apptainer. We can get Docker’s version of a
 <code>hello</code> image by instead pulling
 <code>docker.io/hello-world</code>.</p>
 </div>
@@ -1505,10 +1493,17 @@ the image is quicker to download.</p>
 <p>Try downloading the <code>alpine</code> container image and using it
 to run a container. You can do it in two steps, or one. What are
 they?</p>
-</div>
-</div>
-</div>
 <p>What happened when you ran the Alpine Podman container?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1528,6 +1523,10 @@ you to provide commands yourself. Try running this instead:</p>
 <p>You should see the output of the <code>cat /etc/os-release</code>
 command, which prints out the version of Alpine Linux that this
 container is using and a few additional bits of information.</p>
+</div>
+</div>
+</div>
+</div>
 <div id="hello-world-part-2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1542,12 +1541,12 @@ print a “hello world” message?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Use the same command as above, but with the <code>echo</code> command
 to print a message.</p>
@@ -1637,12 +1636,12 @@ you more information.)</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Solution 1 – Interactive </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Solution 1 – Interactive </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Run an interactive ubuntu container – you can use
 <code>podman image pull</code> first, or just run it with this
@@ -1675,12 +1674,12 @@ command:</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4"> Solution 2 – Run commands </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5"> Solution 2 – Run commands </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Run a ubuntu container, first with a command to read out the Linux
 version:</p>
@@ -2960,7 +2959,7 @@ script using a container based on our recently created
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>We can run a container from the alpine-python container image
 using:</p>
@@ -3129,7 +3128,7 @@ name?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>This script comes from <a href="https://wiki.python.org/moin/SimplePrograms" class="external-link">the Python Wiki</a>
 and is set to add all numbers that are passed to it as arguments.</p>
@@ -3156,7 +3155,7 @@ you characterize the key components of a Podman command?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Here’s a breakdown of each piece of the command above</p>
 <ul>
@@ -3200,7 +3199,7 @@ computer? What’s inside?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The Podman command to run the container interactively is:</p>
 <div class="codewrapper sourceCode" id="cb10">
@@ -3304,7 +3303,7 @@ this one. Once inside, try running the Python script.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>You can start the container interactively like so:</p>
 <div class="codewrapper sourceCode" id="cb16">
@@ -3529,107 +3528,6 @@ images by using the <code>COPY</code> instruction in your
 <code>Dockerfile</code>.</li>
 </ul>
 </div>
-</div>
-</div>
-</div>
-</section></section><section id="aio-docker-image-examples"><p>Content from <a href="docker-image-examples.html">Examples of Using Container Images in Practice</a></p>
-<hr>
-<p>Last updated on 2024-08-16 |
-
-        <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/docker-image-examples.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>How can I use Docker for my own work?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Use existing container images and Docker in a research project.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>Now that we have learned the basics of working with Docker container
-images and containers, let’s apply what we learned to an example
-workflow.</p>
-<p>You may choose one or more of the following examples to practice
-using containers.</p>
-<section><h2 class="section-heading" id="github-actions-example">GitHub Actions Example<a class="anchor" aria-label="anchor" href="#github-actions-example"></a>
-</h2>
-<hr class="half-width">
-<p>In this <a href="e01-github-actions.html">GitHub Actions example</a>,
-you can learn more about continuous integration in the cloud and how you
-can use container images with GitHub to automate repetitive tasks like
-testing code or deploying websites.</p>
-<!--- Placeholder for
-## Geospatial Example
-
-Ask @mkuzak to make a PR to add extra for <https://github.com/escience-academy/docker-gdal-demo>
-
--->
-</section><section><h2 class="section-heading" id="using-containers-on-an-hpc-cluster">Using Containers on an HPC Cluster<a class="anchor" aria-label="anchor" href="#using-containers-on-an-hpc-cluster"></a>
-</h2>
-<hr class="half-width">
-<p>It is possible to run containers on shared computing systems run by a
-university or national computing center. As a researcher, you can build
-container images and test containers on your own computer and then run
-your full-scale computing work on a shared computing system like a high
-performance cluster or high throughput grid.</p>
-<p>The catch? Most university and national computing centers do not
-support <em>running</em> containers with Docker commands, and instead
-use a similar tool called Singularity or Shifter. However, both of these
-programs can be used to run containers based on Docker container images,
-so often people create their container image as a Docker container
-image, so they can run it using either of Docker or Singularity.</p>
-<p>There isn’t yet a working example of how to use Docker container
-images on a shared computing system, partially because each system is
-slightly different, but the following resources show what it can look
-like:</p>
-<ul>
-<li>
-<a href="https://carpentries-incubator.github.io/singularity-introduction/" class="external-link">Introduction
-to Singularity</a>: See the episode titled “Running MPI parallel jobs
-using Singularity containers”</li>
-<li>
-<a href="https://pawseysc.github.io/container-workflows/" class="external-link">Container
-Workflows at Pawsey</a>: See the episode titled “Run containers on HPC
-with Shifter (and Singularity)”</li>
-</ul></section><section><h2 class="section-heading" id="seeking-examples">Seeking Examples<a class="anchor" aria-label="anchor" href="#seeking-examples"></a>
-</h2>
-<hr class="half-width">
-<p>Do you have another example of using Docker in a workflow related to
-your field? Please <a href="https://github.com/carpentries-incubator/docker-introduction/issues/new" class="external-link">open
-a lesson issue</a> or <a href="https://github.com/carpentries-incubator/docker-introduction/pulls" class="external-link">submit
-a pull request</a> to add it to this episode and the extras section of
-the lesson.</p>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<span class="callout-header">Key Points</span>
-<div class="callout-inner">
-<div class="callout-content">
-<ul>
-<li>There are many ways you might use Docker and existing container
-images in your research project.</li>
-</ul>
 </div>
 </div>
 </div>
@@ -4781,7 +4679,7 @@ disadvantages for each approach in the course Etherpad.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>This is not an exhaustive list but some of the advantages and
 disadvantages could be:</p>
@@ -4933,9 +4831,9 @@ allows us to capture our work and enables reproducibility.</li>
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/docker-introduction/instructor/aio.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/instructor/aio.html",
-  "dateCreated": "2026-09-17",
-  "dateModified": "2026-09-17",
-  "datePublished": "2026-09-17"
+  "dateCreated": "2026-09-18",
+  "dateModified": "2026-09-18",
+  "datePublished": "2026-09-18"
 }
 
   </script><script>
