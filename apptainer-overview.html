@@ -24,7 +24,11 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="incubator-logo" alt="Carpentries Incubator" src="assets/images/incubator-logo.svg"></div>
+        <a href="index.html">
+        <img id="incubator-logo" alt="Carpentries Incubator" src="assets/images/incubator-logo.svg"></a>
+
+
+      </div>
     </div>
     <div class="selector-container">
       <menu class="theme-selector" id="theme-selector-menu"><li class="nav-item dropdown theme-button-list" id="theme-button-list-menu">
@@ -64,7 +68,9 @@
       <span class="menu-title">Menu</span>
     </button>
     <div class="nav-logo">
-      <img class="small-logo" alt="Carpentries Incubator" src="assets/images/incubator-logo-sm.svg"></div>
+      <a href="index.html">
+      <img class="small-logo" alt="Carpentries Incubator" src="assets/images/incubator-logo-sm.svg"></a>
+    </div>
     <div class="lesson-title-md">
       Reproducible Computational Environments Using Containers: Introduction to Podman and Apptainer
     </div>
@@ -105,7 +111,7 @@
       </fieldset>
     </form>
     -->
-    <a id="search-button" class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
+    <a id="search-button-nav" class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div><!--/div.container-fluid -->
 </nav><aside class="col-md-12 lesson-progress"><div class="progress incubator">
     <div class="progress-bar incubator" role="progressbar" style="width: 64%" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson Progress">64%</div>
@@ -119,6 +125,9 @@
           <i class="search-icon" data-feather="x" role="img"></i>
         </button>
         <div class="sidebar-inner">
+          <div class="row mobile-row" id="theme-row-mobile">
+            <a id="search-button-sidebar" class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
+          </div>
           <div class="row mobile-row" id="theme-row-mobile">
             <menu class="col theme-selector" id="theme-selector-sidebar"><li class="nav-item dropdown theme-button-list" id="theme-button-list-sidebar">
                 <button class="btn btn-link nav-link px-0 px-lg-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (auto)">
@@ -161,6 +170,7 @@
                     </div>
                   </div><!--/div.accordion-item-->
                 </div><!--/div.accordion-flush-->
+
               </div><!--div.sidenav-view-selector -->
             </div><!--/div.col -->
 
@@ -298,6 +308,29 @@
               </div>
             </div>
 
+            <hr class="half-width"><div class="accordion accordion-flush" id="accordion-links-toggle">
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading-links-toggle">
+                  <button class="accordion-button collapsed" id="links" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-links-toggle" aria-expanded="false" aria-controls="flush-collapse-links-toggle">
+                    LINKS
+                  </button>
+                </h2>
+                <div id="flush-collapse-links-toggle" class="accordion-collapse show collapse" data-bs-parent="#accordion-links-toggle">
+                    <div class="accordion-body">
+                        <ul><li>
+                            <a href="key-points.html">Key Points</a>
+                            </li>
+                            <li>
+                            <a href="reference.html#glossary">Glossary</a>
+                            </li>
+                            <li>
+                            <a href="profiles.html">Learner Profiles</a>
+                            </li>
+                        </ul></div>
+                </div>
+                </div><!--/div.accordion-item-->
+            </div><!--/div.accordion-flush-->
+
             <hr class="half-width"><div class="accordion accordion-flush lesson-resources" id="accordion-resources-toggle">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-heading-resources-toggle">
@@ -307,16 +340,7 @@
                 </h2>
                 <div id="flush-collapse-resources-toggle" class="accordion-collapse collapse" data-bs-parent="#accordion-resources-toggle">
                   <div class="accordion-body">
-                    <ul><li>
-                        <a href="key-points.html">Key Points</a>
-                      </li>
-                      <li>
-                        <a href="reference.html#glossary">Glossary</a>
-                      </li>
-                      <li>
-                        <a href="profiles.html">Learner Profiles</a>
-                      </li>
-                      <li><a href="06-containers-on-the-cloud.html">Creating Containers on the Cloud</a></li><li><a href="08-orchestration.html">Container Orchestration</a></li><li><a href="discuss.html">Discussion</a></li><li><a href="e01-github-actions.html">Using Docker with GitHub Actions</a></li><li><a href="reference.html">Glossary</a></li>
+                    <ul><li><a href="06-containers-on-the-cloud.html">Creating Containers on the Cloud</a></li><li><a href="08-orchestration.html">Container Orchestration</a></li><li><a href="discuss.html">Discussion</a></li><li><a href="e01-github-actions.html">Using Docker with GitHub Actions</a></li><li><a href="reference.html">Glossary</a></li>
                     </ul></div>
                 </div>
               </div>
@@ -352,7 +376,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Overview of Apptainer</h1>
-        <p>Last updated on 2026-09-17 |
+        <p>Last updated on 2026-10-04 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/apptainer-overview.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -528,7 +552,7 @@ started.</p>
 Image Format (SIF)</a> and container images are provided as single
 <code>SIF</code> files (usually with a <code>.sif</code> or
 <code>.img</code> filename extension). Apptainer container images can be
-obtained from standard container repositories liek the ones we saw
+obtained from standard container repositories like the ones we saw
 earlier in the course. Apptainer will convert them to SIF container
 image files automatically.</p>
 <div class="section level3">
@@ -577,13 +601,47 @@ you run the <code>ls</code> command, you should see that the
 </div>
 </div>
 <div class="section level3">
-<h3 id="running-a-apptainer-container">Running a Apptainer container<a class="anchor" aria-label="anchor" href="#running-a-apptainer-container"></a></h3>
-<p>We can now run a container based on the <code>hello.sif</code>
-container image:</p>
+<h3 id="importing-contianer-images-from-files">Importing contianer images from files<a class="anchor" aria-label="anchor" href="#importing-contianer-images-from-files"></a></h3>
+<p>Earlier, we saw that instead on pushing a container image to an
+online repository, we can save it to a file (using
+<code>podman save</code>). Apptainer can also import OCI container
+images from files saved by Podman (and Docker) and convert them to SIF
+files. For example, suppose we have copied the
+<code>alpine-python.tar</code> container image file from our local
+system to the system with Apptainer, we can import and convert it
+with:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">remote$</span> apptainer run hello.sif</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a><span class="ex">remote$</span> apptainer build alpine-python.sif docker-archive:alpine-python.tar</span></code></pre>
+</div>
+<p>Note that the <code>docker-archive</code> format specifier uses a
+single <code>:</code> and not <code>://</code> as it is accessing a
+local file.</p>
+<div id="the-imported-image-must-have-the-correct-architecture" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="the-imported-image-must-have-the-correct-architecture" class="callout-inner">
+<h3 class="callout-title">The imported image must have the correct
+architecture</h3>
+<div class="callout-content">
+<p>Remember that container images built in this way must have the
+correct architecture (usually <code>linux/amd64</code>) for the remote
+platform they are running on.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="running-a-apptainer-container">Running a Apptainer container<a class="anchor" aria-label="anchor" href="#running-a-apptainer-container"></a></h3>
+<p>We can now run a container based on the <code>hello.sif</code>
+container image:</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a><span class="ex">remote$</span> apptainer run hello.sif</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -636,10 +694,10 @@ script that can be used to run commands, tools or applications stored
 within the container image on container startup. We can inspect the
 container image’s run script using the <code>apptainer inspect</code>
 command:</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="ex">remote$</span> apptainer inspect <span class="at">-r</span> hello.sif</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a><span class="ex">remote$</span> apptainer inspect <span class="at">-r</span> hello.sif</span></code></pre>
 </div>
 <p>This shows us the script within the <code>hello.sif</code> container
 image configured to run by default when we use the
@@ -660,7 +718,9 @@ a container shell you should have seen the same username that you have
 on the host system when you ran the container.</p>
 <p>For example, if we download an official Python image, open a terminal
 inside a running container and check our username, we should see it is
-the same as on the HPC system itself</p>
+the same as on the HPC system itself. (Note the use of
+<code>apptainer shell</code> to get an interactive session inside the
+container image.):</p>
 <pre><code>remote$ apptainer pull python-slim.sif docker://docker.io/python:slim
 INFO:    Converting OCI blobs to SIF format
 INFO:    Starting build...
@@ -711,6 +771,16 @@ on the host system.</p>
 </div>
 </div>
 </div>
+<p>The <code>apptainer shell</code> command gives you an interactive
+session within a running container in a similar way to interactive
+access within a Podman container with a key difference - when you access
+a running Podman container interactively, you have an ephemeral layer
+you can write to (remember when we installed packages in a container
+interactively). Any data created in this layer is lost when the Podman
+container is removed. When you have interactive access to an Apptainer
+container, you do not get an ephemeral layer to write to, you can only
+write to locations that have been <em>bound</em> into the running
+container - we discuss this in the next section.</p>
 </section><section><h2 class="section-heading" id="files-and-directories-within-an-apptainer-container">Files and directories within an Apptainer container<a class="anchor" aria-label="anchor" href="#files-and-directories-within-an-apptainer-container"></a></h2>
 <hr class="half-width"><p>Apptainer also <em>binds</em> some <em>directories</em> from the host
 system where you are running the <code>apptainer</code> command into the
@@ -811,21 +881,21 @@ system in the container</li>
 used to specify additional binds. For example, to bind the
 <code>/opt/cray</code> directory (where the HPE Cray programming
 environment is stored) into a container you could use:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a><span class="ex">remote$</span> apptainer shell <span class="at">-B</span> /opt/cray python-slim.sif</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1" aria-label="code-block-13-2"></a><span class="ex">Apptainer</span><span class="op">&gt;</span> ls <span class="at">-la</span> /opt/cray</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="ex">remote$</span> apptainer shell <span class="at">-B</span> /opt/cray python-slim.sif</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a><span class="ex">Apptainer</span><span class="op">&gt;</span> ls <span class="at">-la</span> /opt/cray</span></code></pre>
 </div>
 <p>Note that, by default, a bind is mounted at the same path in the
 container as on the host system. You can also specify where a host
 directory is mounted in the container by separating the host path from
 the container path by a colon (<code>:</code>) in the option:</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a><span class="ex">remote$</span> apptainer shell <span class="at">-B</span> /opt/cray:/cpe python-slim.sif</span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1" aria-label="code-block-14-2"></a><span class="ex">Apptainer</span><span class="op">&gt;</span> ls <span class="at">-la</span> /cpe</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a><span class="ex">remote$</span> apptainer shell <span class="at">-B</span> /opt/cray:/cpe python-slim.sif</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1" aria-label="code-block-15-2"></a><span class="ex">Apptainer</span><span class="op">&gt;</span> ls <span class="at">-la</span> /cpe</span></code></pre>
 </div>
 <p>You can specify multiple binds to <code>-B</code> by separating them
 by commas (<code>,</code>).</p>
@@ -835,12 +905,12 @@ convenient when you have a lot of paths you want to bind into the
 running container For example, to bind the locations that contain both
 the HPE Cray programming environment and the CSE centrally installed
 software into a running container, we would use:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a><span class="ex">remote$</span> export APPTAINER_BIND=<span class="st">"/opt/cray,/epccfs/y07/shared/cirrus-ex"</span></span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1" aria-label="code-block-15-2"></a><span class="ex">remote$</span> apptainer shell python-slim.sif</span>
-<span id="cb15-3"><a href="#cb15-3" tabindex="-1" aria-label="code-block-15-3"></a><span class="ex">Apptainer</span><span class="op">&gt;</span> ls <span class="at">-la</span> /epccfs/y07/shared/cirrus-ex</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a><span class="ex">remote$</span> export APPTAINER_BIND=<span class="st">"/opt/cray,/epccfs/y07/shared/cirrus-ex"</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1" aria-label="code-block-16-2"></a><span class="ex">remote$</span> apptainer shell python-slim.sif</span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1" aria-label="code-block-16-3"></a><span class="ex">Apptainer</span><span class="op">&gt;</span> ls <span class="at">-la</span> /epccfs/y07/shared/cirrus-ex</span></code></pre>
 </div>
 <p>Finally, you will remember from discussing building container images
 using Podman that you can also copy data into a container image at build
@@ -902,7 +972,7 @@ inside a running container.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.21.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.2)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/" class="external-link">sandpaper (0.21.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/" class="external-link">varnish (1.1.3)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -923,9 +993,9 @@ inside a running container.</li>
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/docker-introduction/apptainer-overview.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/apptainer-overview.html",
-  "dateCreated": "2026-09-18",
-  "dateModified": "2026-09-17",
-  "datePublished": "2026-09-18"
+  "dateCreated": "2026-10-04",
+  "dateModified": "2026-10-04",
+  "datePublished": "2026-10-04"
 }
 
   </script><script>
@@ -934,7 +1004,7 @@ inside a running container.</li>
           var _paq = window._paq = window._paq || [];
           /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
           _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-          _paq.push(["setDomains", ["*.lessons.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
+          _paq.push(["setDomains", ["*.lessons.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.hpc-carpentry.github.io","*.hpc-carpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
           _paq.push(["setDoNotTrack", true]);
           _paq.push(["disableCookies"]);
           _paq.push(["trackPageView"]);
