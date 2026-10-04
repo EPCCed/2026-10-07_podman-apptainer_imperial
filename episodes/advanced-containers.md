@@ -398,6 +398,31 @@ must be available within your container: Linux distributions such as Alpine may 
 install such commands before using them within `RUN` statements.
 
 
+## Building for other architectures
+
+Sometimes you will need to build container images with a different architecture from the platform
+you are running on.
+
+Typically, this happens when your local system has Apple silicon hardware 
+(which is an Arm architecture) but you are building container images to use on a system
+that has x86_64 architecture (used by Intel and AMD processors). Though, sometimes the reverse 
+will be true if you are building on an x86_64 system for use on an NVIDIA HPC system (where the
+Grace or Vera CPUs have Arm architecture).
+
+You can specify the architecture to build for using the `--platform` flag. For example, to build
+our `alpine-sum` container image specifically for x86_64 architecture (the x86_64 architecture
+is labelled as `amd64` for historic reasons - AMD invented the x86_64 architecture specification):
+
+```bash
+podman image build --platform=linux/amd64 -t alice/alpine-sum:x86 .
+```
+
+or, to build specifically for Arm architecture:
+
+```bash
+podman image build --platform=linux/arm64 -t alice/alpine-sum:arm64 .
+```
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## More fancy `Dockerfile` options (optional, for presentation or as exercises)
