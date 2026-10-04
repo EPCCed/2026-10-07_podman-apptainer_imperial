@@ -41,10 +41,10 @@ If you are unable to follow the above instructions to install Podman on your Win
 If you are using Git Bash as your terminal on Windows then you should be aware that you may run
 into issues running some of the commands in this lesson as Git Bash will automatically re-write
 any paths you specify at the command line into Windows versions of the paths and this will confuse
-the Docker container you are trying to use. For example, if you enter the command:
+the Podman container you are trying to use. For example, if you enter the command:
 
 ```
-docker run alpine cat /etc/os-release
+podman run alpine cat /etc/os-release
 ```
 
 Git Bash will change the `/etc/os-release` path to `C:\etc\os-release\` before passing the command
@@ -53,7 +53,7 @@ can request that this path translation does not take place by adding an extra `/
 path. i.e. the command would become:
 
 ```
-docker run alpine cat //etc/os-release
+podman run alpine cat //etc/os-release
 ```
 
 This should suppress the path translation functionality in Git Bash.
@@ -65,7 +65,7 @@ This should suppress the path translation functionality in Git Bash.
 
 Ideally, you will be able to install the Podman software, from the
 [Podman Github Releases website](https://github.com/containers/podman/releases/).
-The current version of the Podman software appears to require macOS version 13 (Ventura) or later, but we have not tested this.
+The current version of the Podman software appears to require macOS version 13 (Ventura) or later, but we have not tested this. If you're using an Intel-based Mac system, Podman does not provide installers for versions from 6.0.0 onwards. If you wish to use an installer from Podman's official releases to install on an Intel-based Mac, you'll need to use the latest v5.8.x release.
 
 If you already use Homebrew or MacPorts to manage your software, and would prefer to use those
 tools rather than Podman's installer, you can do so. For Homebrew, you can run the command
@@ -84,11 +84,14 @@ $ podman version
 ```
 
 ```output
-Version:      3.4.4
-API Version:  3.4.4
-Go Version:   go1.18.1
-Built:        Thu Jan  1 01:00:00 1970
-OS/Arch:      linux/amd64
+Client:       Podman Engine
+Version:      5.8.8
+API Version:  5.8.8
+Go Version:   go1.27.1
+...
+Built:        Tue Sep 29 17:18:41 2026
+...
+OS/Arch:      darwin/amd64
 ```
 
 The above output shows a successful installation and will vary based on your system.
