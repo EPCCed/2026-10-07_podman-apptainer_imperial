@@ -381,6 +381,54 @@ She could then push the re-named container image to Docker Hub,
 using `podman image push docker.io/alice/workflow-complete:v1`
 
 
+## Saving container images as files
+
+There are some scenarios where you will want to move container images around but do not want
+to share them to an online container repository (such as Docker Hub). You can save your 
+container image to a file to allow you to move it to a different location using the 
+`podman save` command.
+
+For example, Alice wants to use her `alpine-python` container on a different system but does
+not want to share it in an online container repository. She plans to create a container image
+file and then copy it manually to another system. She saves the container image to the file
+`alpine-python.tar` in the current directory as follows:
+
+```bash
+$ podman image save -o alpine-python.tar docker.io/alice/alpine-python
+```
+
+To make transferring easier, she can then compress the image file. For example:
+
+```bash
+$ gzip alpine-python.tar
+```
+
+Which will produce the file `alpine-python.tar.gz` (alternatively, she could have compressed
+the file using `zip` rather than `gzip`).
+
+## Loading container images from file
+
+If you have a Podman/Docker container image file created using the process above then you can
+load it into the Podman environment (so you can use it in the same way as any other container
+image) using the `podman image load` command. If the image has been compressed, this command
+will automatically uncompress it as it loads it.
+
+Alice has transferred the `alpine-python.tar` file to a different system (which also has 
+Podman available) and she makes ti available to use by loading the container image file:
+
+```bash
+$ podman image load -i alpine-python.tar
+```
+
+Once it has been loaded, it will be available in the list of images:
+
+```bash
+$ podman image ls
+```
+
+```output
+```
+
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

@@ -113,7 +113,7 @@ A *container* is a virtual environment that is based on a container image. That 
 
 ## Getting a container image and running a Apptainer container
 
-Apptainer uses the [Singularity Image Format (SIF)](https://apptainer.org/docs/user/main/cli/apptainer_sif.html) and container images are provided as single `SIF` files (usually with a `.sif` or `.img` filename extension). Apptainer container images can be obtained from standard container repositories liek the ones we saw earlier in the course. Apptainer will convert them to SIF container image files automatically.
+Apptainer uses the [Singularity Image Format (SIF)](https://apptainer.org/docs/user/main/cli/apptainer_sif.html) and container images are provided as single `SIF` files (usually with a `.sif` or `.img` filename extension). Apptainer container images can be obtained from standard container repositories like the ones we saw earlier in the course. Apptainer will convert them to SIF container image files automatically.
 
 
 ### Pulling a container image
@@ -147,6 +147,24 @@ remote$ ls -lh
 total 60M
 -rwxr-xr-x. 1 auser group 360K Sep 17 08:43 hello.sif
 ```
+
+### Importing contianer images from files
+
+Earlier, we saw that instead on pushing a container image to an online repository, we can save it to a file (using `podman save`). Apptainer can also import OCI container images from files saved by Podman (and Docker) and convert them to SIF files. For example, suppose we have copied the `alpine-python.tar` container image file from our local system to the system with Apptainer, we can import and convert it with:
+
+```bash
+remote$ apptainer build alpine-python.sif docker-archive:alpine-python.tar
+```
+
+Note that the `docker-archive` format specifier uses a single `:` and not `://` as it is accessing a local file.
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## The imported image must have the correct architecture
+
+Remember that container images built in this way must have the correct architecture (usually `linux/amd64`) for the remote platform they are running on.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Running a Apptainer container
 
@@ -209,8 +227,7 @@ This is different from Podman if we use it on our local system (as many people d
 
 The first thing to note is that if you run `whoami` within a container shell you should have seen the same username that you have on the host system when you ran the container. 
 
-
-For example, if we download an official Python image, open a terminal inside a running container and check our username, we should see it is the same as on the HPC system itself
+For example, if we download an official Python image, open a terminal inside a running container and check our username, we should see it is the same as on the HPC system itself. (Note the use of `apptainer shell` to get an interactive session inside the container image.):
 
 ```
 remote$ apptainer pull python-slim.sif docker://docker.io/python:slim
@@ -249,6 +266,8 @@ Assuming this feature is enabled within the installation of Apptainer on your sy
 This means that the host system can effectively ensure that you cannot access/modify/delete any data you should not be able to on the host system from within the container and you cannot run anything that you would not have permission to run on the host system since you are restricted to the same user permissions within the container as you are on the host system.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The `apptainer shell` command gives you an interactive session within a running container in a similar way to interactive access within a Podman container with a key difference - when you access a running Podman container interactively, you have an ephemeral layer you can write to (remember when we installed packages in a container interactively). Any data created in this layer is lost when the Podman container is removed. When you have interactive access to an Apptainer container, you do not get an ephemeral layer to write to, you can only write to locations that have been *bound* into the running container - we discuss this in the next section.
 
 ## Files and directories within an Apptainer container
 
