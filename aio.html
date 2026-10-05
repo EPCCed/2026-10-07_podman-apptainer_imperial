@@ -435,7 +435,7 @@
         
 <section id="aio-introduction"><p>Content from <a href="introduction.html">Introducing Containers</a></p>
 <hr>
-<p>Last updated on 2026-06-17 |
+<p>Last updated on 2026-10-05 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -505,8 +505,8 @@ DOI: <a href="https://doi.org/10.5281/zenodo.5091260" class="external-link">http
 <div class="callout-content">
 <p>Take a minute to think about challenges that you have experienced in
 using scientific software (or software in general!) for your research.
-Then, share with your neighbors and try to come up with a list of common
-gripes or challenges.</p>
+Then, share with your neighbours and try to come up with a list of
+common gripes or challenges.</p>
 </div>
 </div>
 </div>
@@ -567,7 +567,7 @@ surprise that this situation is sometimes informally termed
 <div class="callout-content">
 <p>Again, take a minute to think about how the software challenges we’ve
 discussed could impact (or have impacted!) the quality of your work.
-Share your thoughts with your neighbors. What can go wrong if our
+Share your thoughts with your neighbours. What can go wrong if our
 software doesn’t work?</p>
 </div>
 </div>
@@ -626,8 +626,8 @@ should <em>just work</em>.</p>
 <p>Containers are an example of what’s called
 <strong>virtualization</strong> – having a second virtual computer
 running and accessible from a main or <strong>host</strong> computer.
-Another example of virtualization are <strong>virtual machines</strong>
-or VMs. A virtual machine typically contains a whole copy of an
+Another example of virtualization is <strong>virtual machines</strong>
+(or VMs). A virtual machine typically contains a whole copy of an
 operating system in addition to its own filesystem and has to get booted
 up in the same way a computer would. A container is considered a
 lightweight version of a virtual machine; underneath, the container is
@@ -701,7 +701,7 @@ that generates a container image with software that you specify
 installed, then sharing a container image generated using this file with
 your collaborators for use on their computers or a remote computing
 resource (e.g. cloud-based or HPC system).</li>
-<li>Archiving the container images so you can repeat analysis/modelling
+<li>Archiving your container images so you can repeat analysis/modelling
 using the same software and configuration in the future – capturing your
 workflow.</li>
 </ul>
@@ -737,7 +737,7 @@ the resources they use.</li>
 </div>
 </section></section><section id="aio-meet-podman"><p>Content from <a href="meet-podman.html">Introducing the Podman Command Line</a></p>
 <hr>
-<p>Last updated on 2026-06-17 |
+<p>Last updated on 2026-10-05 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/meet-podman.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -779,14 +779,16 @@ use.</li>
 the setup instructions for this session. Note that this might not be
 necessary if your laptop is running Linux or if the installation added
 the Podman application to your startup process.</p>
-<div id="you-may-need-to-login-to-docker-hub" class="callout">
+<div id="logging-in-to-docker-hub" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <span class="callout-header">Callout</span>
-<div id="you-may-need-to-login-to-docker-hub" class="callout-inner">
-<h3 class="callout-title">You may need to login to Docker Hub</h3>
+<div id="logging-in-to-docker-hub" class="callout-inner">
+<h3 class="callout-title">Logging in to Docker Hub</h3>
 <div class="callout-content">
+<p><em>Note: This step is optional at this stage but it will need to be
+done later in the course if you don’t do this now.</em></p>
 <p>The Podman Desktop application will usually provide a way for you to
 log in to the Docker Hub via the ‘Settings’ menu followed by
 ‘Registries’ and then ‘Configure’ under the Docker Hub entry. It is
@@ -820,9 +822,10 @@ is)</li>
 </div>
 <p>Once your Podman application is running, open a shell (terminal)
 window, and run the following command to check that Podman is installed
-and the command line tools are working correctly. Below is the output
-for a Mac version, but the specific version is unlikely to matter much:
-it does not have to precisely match the one listed below.</p>
+and the command line tools are working correctly. Below is an example of
+the output for a Mac version, but the specific version is unlikely to
+matter much: it does not have to precisely match the one listed
+below.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -834,8 +837,8 @@ it does not have to precisely match the one listed below.</p>
 <pre class="output" tabindex="0"><code>podman version 5.4.2</code></pre>
 </div>
 <p>The above command has not actually relied on the part of Podman that
-runs containers, just that Podman is installed and you can access it
-correctly from the command line.</p>
+runs containers, it has just confirmed that Podman is installed and you
+can access it correctly from the command line.</p>
 <p>A command that checks that Podman is working correctly is the
 <code>podman container ls</code> command (we cover this command in more
 detail later in the course).</p>
@@ -862,8 +865,8 @@ produces a larger amount of output.)</p>
 Error: unable to connect to Podman socket: failed to connect: dial tcp 127.0.0.1:63249: connect: connection refused</code></pre>
 </div>
 <p>then you need to check that you have started the Podman Desktop
-application or Podman Machine or however else you worked through the
-setup instructions.</p>
+application or Podman Machine, depending on the choices you made when
+you worked through the setup instructions.</p>
 </section><section><h2 class="section-heading" id="getting-help">Getting help<a class="anchor" aria-label="anchor" href="#getting-help"></a>
 </h2>
 <hr class="half-width">
@@ -1050,10 +1053,10 @@ Options:
 <p>You may notice that there are many commands that stem from the
 <code>podman</code> command. Instead of trying to remember all possible
 commands and options, it’s better to learn how to effectively get help
-from the command line. Although we can always search the web, getting
-the built-in help from our tool is often much faster and may provide the
-answer right away. This applies not only to Podman, but also to most
-command line-based tools.</p>
+from the command line. Although we can always search the web, using the
+built-in help from our tool is often much faster and may provide a
+straightforward answer right away. This applies not only to Podman, but
+also to most command line-based tools.</p>
 <div id="podman-command-line-interface-cli-syntax" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -1063,8 +1066,11 @@ command line-based tools.</p>
 <h3 class="callout-title">Podman Command Line Interface (CLI)
 syntax</h3>
 <div class="callout-content">
-<p>In this lesson we use the CLI syntax <a href="https://www.docker.com/blog/whats-new-in-docker-1-13/" class="external-link">introduced
-with the Docker Engine version 1.13</a>. This new syntax combines
+<p>Podman’s CLI syntax is based on that used by Docker. In this lesson
+we use the more descriptive, restructured form of the syntax <a href="https://www.docker.com/blog/whats-new-in-docker-1-13/#cli-restructured" class="external-link">introduced
+some time ago with the Docker Engine version 1.13</a>. An earlier
+version of the syntax used more concise but less clear commands and
+while it is still supported, the form the syntax that we cover combines
 commands into groups you will most often want to interact with. In the
 help example above you can see <code>image</code> and
 <code>container</code> management commands, which can be used to
@@ -1101,7 +1107,7 @@ prompt.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>Suppose we pick the <code>podman image build</code> command:</p>
 <div class="codewrapper sourceCode" id="cb11">
@@ -1265,7 +1271,7 @@ command followed by the <code>--help</code> flag.</li>
 </div>
 </section></section><section id="aio-running-containers"><p>Content from <a href="running-containers.html">Exploring and Running Containers</a></p>
 <hr>
-<p>Last updated on 2026-09-18 |
+<p>Last updated on 2026-10-05 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/running-containers.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1348,10 +1354,10 @@ the internet, run this command:</p>
 <pre class="output" tabindex="0"><code>Resolved "hello" as an alias (/etc/containers/registries.conf.d/000-shortnames.conf)
 Trying to pull quay.io/podman/hello:latest...
 Getting image source signatures
-Copying blob sha256:1ff9adeff4443b503b304e7aa4c37bb90762947125f4a522b370162a7492ff47
-Copying config sha256:83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32
+Copying blob sha256:81df7ff16254ed9756e27c8de9ceb02a9568228fccadbf080f41cc5eb5118a44
+Copying config sha256:5dd467fce50b56951185da365b5feee75409968cbab5767b9b59e325fb2ecbc0
 Writing manifest to image destination
-83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32</code></pre>
+5dd467fce50b56951185da365b5feee75409968cbab5767b9b59e325fb2ecbc0</code></pre>
 </div>
 <div id="container-registries" class="callout">
 <div class="callout-square">
@@ -1394,7 +1400,7 @@ try before checking the solution.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>To see if the <code>hello</code> container image is now on your
 computer, run:</p>
@@ -1463,10 +1469,10 @@ command, Podman does three things:</p>
 <th>3. Shuts Down the Container</th>
 </tr></thead>
 <tbody><tr>
-<td>Starts a running container, based on the container image. Think of
+<td>Creates and runs a container, based on the container image. Think of
 this as the “alive” or “inflated” version of the container – it’s
 actually doing something.</td>
-<td>If the container has a default action set, it will perform that
+<td>If the container has a “default action” set, it will perform that
 default action. This could be as simple as printing a message (as above)
 or running a whole analysis pipeline!</td>
 <td>Once the default action is complete, the container stops running (or
@@ -1522,7 +1528,7 @@ they?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1566,7 +1572,7 @@ print a “hello world” message?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Use the same command as above, but with the <code>echo</code> command
 to print a message.</p>
@@ -1581,7 +1587,9 @@ to print a message.</p>
 </div>
 <p>So here, we see another option – we can provide commands at the end
 of the <code>podman container run</code> command and they will execute
-inside the running container.</p>
+inside the running container. (<em>Note that the command you put at the
+end of the <code>podman container run</code> command has to be installed
+within the image that you’ve started the container from.</em>)</p>
 </section><section><h2 class="section-heading" id="running-containers-interactively">Running containers interactively<a class="anchor" aria-label="anchor" href="#running-containers-interactively"></a>
 </h2>
 <hr class="half-width">
@@ -1661,7 +1669,7 @@ you more information.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Solution 1 – Interactive </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Run an interactive ubuntu container – you can use
 <code>podman image pull</code> first, or just run it with this
@@ -1699,7 +1707,7 @@ command:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Solution 2 – Run commands </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Run a ubuntu container, first with a command to read out the Linux
 version:</p>
@@ -2477,7 +2485,7 @@ work?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A quick search should hopefully show that the way to install R on
 Alpine Linux is:</p>
@@ -2604,7 +2612,7 @@ Dockerfile to replicate the installation we did above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution: </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Based on our experience above, edit the <code>Dockerfile</code> (in
 your text editor of choice) to look like this:</p>
@@ -2713,7 +2721,7 @@ different, like print “hello world”?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>To see your new image, run <code>podman image ls</code>. You
