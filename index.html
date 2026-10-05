@@ -479,12 +479,6 @@ unzip to a folder called <code>podman-intro</code>.</p>
 </div>
 <div class="section level3">
 <h3 id="software-to-install">Software to install<a class="anchor" aria-label="anchor" href="#software-to-install"></a></h3>
-<p>Podman’s installation experience has steadily improved, however
-situations will arise in which installing Podman on your computer may
-not be straightforward unless you have a large amount of technical
-experience. Workshops try to have helpers on hand that have worked their
-way through the install process, but do be prepared for some
-troubleshooting.</p>
 <p>In most cases, you will need to have administrator rights on the
 computer in order to install the Podman software. If you are using a
 computer managed by your organisation and do not have administrator
@@ -504,9 +498,8 @@ of the lesson will work without running as admin but if you are unable
 to <code>Run as administrator</code> on your machine some elements of
 this workshop might not work as described.</p>
 <p>Ideally, you will be able to install the Podman Desktop, following
-the <a href="https://podman-desktop.io/docs/installation/windows-install" class="external-link">Podman
-website’s documentation</a>. Note that Podman for Windows relies upon
-installing the Windows Subsystem for Linux (WSL).</p>
+the <a href="https://podman-desktop.io/docs/installation" class="external-link">Podman Desktop
+website’s documentation</a>.</p>
 <p>Note that the above installation instructions highlight a minimum
 version or “build” that is required to be able to install Podman on your
 Windows 10 system. See <a href="https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808" class="external-link">Which
@@ -534,7 +527,7 @@ this lesson as Git Bash will automatically re-write any paths you
 specify at the command line into Windows versions of the paths and this
 will confuse the Docker container you are trying to use. For example, if
 you enter the command:</p>
-<pre><code>docker run alpine cat /etc/os-release</code></pre>
+<pre><code>podman run alpine cat /etc/os-release</code></pre>
 <p>Git Bash will change the <code>/etc/os-release</code> path to
 <code>C:\etc\os-release\</code> before passing the command to the Docker
 container and the container will report an error. If you want to use Git
@@ -550,27 +543,27 @@ Bash.</p>
 </div>
 <div class="section level4">
 <h4 id="apple-macos">Apple macOS<a class="anchor" aria-label="anchor" href="#apple-macos"></a></h4>
-<p>Ideally, you will be able to install the Podman software, from the <a href="https://github.com/containers/podman/releases/" class="external-link">Podman Github
-Releases website</a>. The current version of the Podman software appears
-to require macOS version 13 (Ventura) or later, but we have not tested
-this.</p>
-<p>If you already use Homebrew or MacPorts to manage your software, and
-would prefer to use those tools rather than Podman’s installer, you can
-do so. For Homebrew, you can run the command
-<code>brew install podman</code>.</p>
+<p><strong>You must have admin rights to run Podman!</strong> Some parts
+of the lesson will work without running as admin but if you are unable
+to <code>Run as administrator</code> on your machine some elements of
+this workshop might not work as described.</p>
+<p>Ideally, you will be able to install the Podman Desktop, following
+the <a href="https://podman-desktop.io/docs/installation" class="external-link">Podman Desktop
+website’s documentation</a>.</p>
+<p>Versions are available for both Intel-based and Apple Silicon (Arm)
+macOS systems.</p>
 </div>
 <div class="section level4">
 <h4 id="linux">Linux<a class="anchor" aria-label="anchor" href="#linux"></a></h4>
-<p>If it is not already installed on your system, the <a href="https://podman.io/docs/installation#linux-distributions" class="external-link">Podman
-Installation instructions</a> page provides an overview of supported
-Linux distributions and pointers to relevant installation
-information.</p>
+<p>Ideally, you will be able to install the Podman Desktop, following
+the <a href="https://podman-desktop.io/docs/installation" class="external-link">Podman Desktop
+website’s documentation</a>.</p>
 </div>
 </div>
 <div class="section level3">
 <h3 id="verify-installation">Verify Installation<a class="anchor" aria-label="anchor" href="#verify-installation"></a></h3>
-<p>To quickly check if the Docker and client and server are working run
-the following command in a new terminal or ssh session:</p>
+<p>To quickly check if Podman is working run the following command in a
+new terminal or ssh session:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -579,11 +572,22 @@ the following command in a new terminal or ssh session:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>Version:      3.4.4
-API Version:  3.4.4
-Go Version:   go1.18.1
-Built:        Thu Jan  1 01:00:00 1970
-OS/Arch:      linux/amd64</code></pre>
+<pre class="output" tabindex="0"><code>Client:        Podman Engine
+Version:       6.0.2
+API Version:   6.0.2
+Go Version:    go1.26.5
+Git Commit:    b28edb9ad70ce4317dc762ee9ce0a6d081d154e9
+Built:         Wed Jul 22 03:55:39 2026
+Build Origin:  pkginstaller
+OS/Arch:       darwin/arm64
+
+Server:       Podman Engine
+Version:      6.0.2
+API Version:  6.0.2
+Go Version:   go1.26.5-X:nodwarf5
+Git Commit:   b28edb9ad70ce4317dc762ee9ce0a6d081d154e9
+Built:        Tue Jul 21 01:00:00 2026
+OS/Arch:      linux/arm64</code></pre>
 </div>
 <p>The above output shows a successful installation and will vary based
 on your system.</p>
@@ -685,9 +689,9 @@ lines.
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/docker-introduction/index.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/index.html",
-  "dateCreated": "2026-10-04",
-  "dateModified": "2026-10-04",
-  "datePublished": "2026-10-04"
+  "dateCreated": "2026-10-05",
+  "dateModified": "2026-10-05",
+  "datePublished": "2026-10-05"
 }
 
   </script><script>
