@@ -25,7 +25,10 @@ Start the Podman application that you installed in working through the setup ins
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## You may need to login to Docker Hub
+## Logging in to Docker Hub
+
+_Note: This step is optional at this stage but it will need to be done later
+in the course if you don't do this now._
 
 The Podman Desktop application will usually provide a way for you to log in to
 the Docker Hub via the 'Settings' menu followed by 'Registries' and then
@@ -51,7 +54,7 @@ you can find out what it is through the steps:
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Once your Podman application is running, open a shell (terminal) window, and run the following command to check that Podman is installed and the command line tools are working correctly. Below is the output for a Mac version, but the specific version is unlikely to matter much: it does not have to precisely match the one listed below.
+Once your Podman application is running, open a shell (terminal) window, and run the following command to check that Podman is installed and the command line tools are working correctly. Below is an example of the output for a Mac version, but the specific version is unlikely to matter much: it does not have to precisely match the one listed below.
 
 ```bash
 $ podman --version
@@ -61,7 +64,7 @@ $ podman --version
 podman version 5.4.2
 ```
 
-The above command has not actually relied on the part of Podman that runs containers, just that Podman
+The above command has not actually relied on the part of Podman that runs containers, it has just confirmed that Podman
 is installed and you can access it correctly from the command line.
 
 A command that checks that Podman is working correctly is the `podman container ls` command (we cover this command in more detail later in the course).
@@ -85,7 +88,8 @@ Cannot connect to Podman. Please verify your connection to the Linux system usin
 Error: unable to connect to Podman socket: failed to connect: dial tcp 127.0.0.1:63249: connect: connection refused
 ```
 
-then you need to check that you have started the Podman Desktop application or Podman Machine or however else you worked through the setup instructions.
+then you need to check that you have started the Podman Desktop application or Podman Machine,
+depending on the choices you made when you worked through the setup instructions.
 
 ## Getting help
 
@@ -262,16 +266,17 @@ Options:
 
 You may notice that there are many commands that stem from the `podman` command. Instead of trying to remember
 all possible commands and options, it's better to learn how to effectively get help from the command line. Although
-we can always search the web, getting the built-in help from our tool is often much faster and may provide the answer
+we can always search the web, using the built-in help from our tool is often much faster and may provide a straightforward answer
 right away. This applies not only to Podman, but also to most command line-based tools.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Podman Command Line Interface (CLI) syntax
 
-In this lesson we use the CLI syntax
-[introduced with the Docker Engine version 1.13](https://www.docker.com/blog/whats-new-in-docker-1-13/).
-This new syntax combines commands into groups you will most often
+Podman's CLI syntax is based on that used by Docker. In this lesson we use the more descriptive, restructured form of
+the syntax [introduced some time ago with the Docker Engine version 1.13](https://www.docker.com/blog/whats-new-in-docker-1-13/#cli-restructured).
+An earlier version of the syntax used more concise but less clear commands and while it is still supported,
+the form the syntax that we cover combines commands into groups you will most often
 want to interact with. In the help example above you can see `image` and `container`
 management commands, which can be used to interact with your images and
 containers respectively. With this new syntax you issue commands using the following
