@@ -54,10 +54,10 @@ You should see output like this:
 Resolved "hello" as an alias (/etc/containers/registries.conf.d/000-shortnames.conf)
 Trying to pull quay.io/podman/hello:latest...
 Getting image source signatures
-Copying blob sha256:1ff9adeff4443b503b304e7aa4c37bb90762947125f4a522b370162a7492ff47
-Copying config sha256:83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32
+Copying blob sha256:81df7ff16254ed9756e27c8de9ceb02a9568228fccadbf080f41cc5eb5118a44
+Copying config sha256:5dd467fce50b56951185da365b5feee75409968cbab5767b9b59e325fb2ecbc0
 Writing manifest to image destination
-83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32
+5dd467fce50b56951185da365b5feee75409968cbab5767b9b59e325fb2ecbc0
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -138,7 +138,7 @@ What just happened? When we use the `podman container run` command, Podman does 
 
 | 1\. Starts a Running Container                                                                                                                                   | 2\. Performs Default Action                                                                                                                                                     | 3\. Shuts Down the Container                                                                                                                       | 
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Starts a running container, based on the container image. Think of this as the "alive" or "inflated" version of the container -- it's actually doing something. | If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). The container image is still there, but nothing is actively running. | 
+| Creates and runs a container, based on the container image. Think of this as the "alive" or "inflated" version of the container -- it's actually doing something. | If the container has a "default action" set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). The container image is still there, but nothing is actively running. | 
 
 The `hello` container is set up to run an action by default --
 namely to print this message.
@@ -219,6 +219,7 @@ $ podman container run alpine echo 'Hello World'
 
 So here, we see another option -- we can provide commands at the end of the `podman container run`
 command and they will execute inside the running container.
+(_Note that the command you put at the end of the `podman container run` command has to be installed within the image that you've started the container from._)
 
 ## Running containers interactively
 
