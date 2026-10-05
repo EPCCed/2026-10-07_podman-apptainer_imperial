@@ -22,6 +22,9 @@
     <loc>https://preview.carpentries.org/docker-introduction/advanced-containers.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/afternoon-break.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/aio.html</loc>
   </url>
   <url>
@@ -85,6 +88,9 @@
     <loc>https://preview.carpentries.org/docker-introduction/instructor/advanced-containers.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/instructor/afternoon-break.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/aio.html</loc>
   </url>
   <url>
@@ -136,6 +142,9 @@
     <loc>https://preview.carpentries.org/docker-introduction/instructor/key-points.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/instructor/lunch.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/managing-containers.html</loc>
   </url>
   <url>
@@ -143,6 +152,9 @@
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/meet-podman.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/docker-introduction/instructor/morning-break.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/profiles.html</loc>
@@ -166,6 +178,9 @@
     <loc>https://preview.carpentries.org/docker-introduction/key-points.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/lunch.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/managing-containers.html</loc>
   </url>
   <url>
@@ -173,6 +188,9 @@
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/meet-podman.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/docker-introduction/morning-break.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/profiles.html</loc>
