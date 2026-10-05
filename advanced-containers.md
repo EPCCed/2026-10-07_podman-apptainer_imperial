@@ -60,7 +60,7 @@ Question: What command would we use to run Python from the `alpine-python` conta
 We can run a container from the alpine-python container image using:
 
 ```bash
-$ podman container run alice/alpine-python python3 sum.py
+$ podman container run docker.io/alice/alpine-python python3
 ```
 
 What happens? Since the `Dockerfile` that we built this container image from
@@ -89,7 +89,7 @@ _(type `exit()` to exit!)_
 If we try running the container and Python script, what happens?
 
 ```bash
-$ podman container run alice/alpine-python python3 sum.py
+$ podman container run docker.io/alice/alpine-python python3 sum.py
 ```
 
 ```output
@@ -145,7 +145,7 @@ topic. You can find more information on the different mount types in
 Let's try running the command now:
 
 ```bash
-$ podman container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 sum.py
+$ podman container run --mount type=bind,source=${PWD},target=/temp docker.io/lice/alpine-python python3 sum.py
 ```
 
 But we get the same error!
@@ -160,7 +160,7 @@ mapped to `/temp` -- so we need to include that in the path to the script. This
 command should give us what we need:
 
 ```bash
-$ podman container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 /temp/sum.py
+$ podman container run --mount type=bind,source=${PWD},target=/temp docker.io/alice/alpine-python python3 /temp/sum.py
 ```
 
 Note that if we create any files in the `/temp` directory while the container is
@@ -205,10 +205,7 @@ and put numbers after the script name?
 ## Solution
 
 This script comes from [the Python Wiki](https://wiki.python.org/moin/SimplePrograms)
-and is set to add all numbers
-that are passed to it as arguments.
-
-
+and is set to add all numbers that are passed to it as arguments.
 
 :::::::::::::::::::::::::
 
@@ -231,7 +228,7 @@ Here's a breakdown of each piece of the command above
 - `podman container run`: use Podman to run a container
 - `--mount type=bind,source=${PWD},target=/temp`: connect my current working directory (`${PWD}`) as a folder
   inside the container called `/temp`
-- `alice/alpine-python`: name of the container image to use to run the container
+- `docker.io/alice/alpine-python`: name of the container image to use to run the container
 - `python3 /temp/sum.py`: what commands to run in the container
 
 More generally, every Podman command will have the form:
@@ -255,7 +252,7 @@ Can you find the folder that's connected to your host computer? What's inside?
 The Podman command to run the container interactively is:
 
 ```bash
-$ podman container run --mount type=bind,source=${PWD},target=/temp -it alice/alpine-python sh
+$ podman container run --mount type=bind,source=${PWD},target=/temp -it docker.io/alice/alpine-python sh
 ```
 
 Once inside, you should be able to navigate to the `/temp` folder
@@ -301,7 +298,7 @@ This line will cause Podman to copy the file from your computer into the contain
 filesystem. Let's build the container image like before, but give it a different name:
 
 ```bash
-$ podman image build -t alice/alpine-sum .
+$ podman image build -t docker.io/alice/alpine-sum .
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -341,7 +338,7 @@ Once inside, try running the Python script.
 You can start the container interactively like so:
 
 ```bash
-$ podman container run -it alice/alpine-sum sh
+$ podman container run -it docker.io/alice/alpine-sum sh
 ```
 
 You should be able to run the python command inside the container like this:
@@ -414,13 +411,13 @@ our `alpine-sum` container image specifically for x86_64 architecture (the x86_6
 is labelled as `amd64` for historic reasons - AMD invented the x86_64 architecture specification):
 
 ```bash
-podman image build --platform=linux/amd64 -t alice/alpine-sum:x86 .
+podman image build --platform=linux/amd64 -t docker.io/alice/alpine-sum:x86 .
 ```
 
 or, to build specifically for Arm architecture:
 
 ```bash
-podman image build --platform=linux/arm64 -t alice/alpine-sum:arm64 .
+podman image build --platform=linux/arm64 -t docker.io/alice/alpine-sum:arm64 .
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -444,8 +441,8 @@ CMD ["python3", "/home/sum.py"]
 Build and test it:
 
 ```bash
-$ podman image build -t alpine-sum:v1 .
-$ podman container run alpine-sum:v1
+$ podman image build -t docker.io/alice/alpine-sum:v1 .
+$ podman container run docker.io/alice/alpine-sum:v1
 ```
 
 You'll notice that you can run the container without arguments just fine,
@@ -453,7 +450,7 @@ resulting in `sum = 0`, but this is boring. Supplying arguments however
 doesn't work:
 
 ```bash
-podman container run alpine-sum:v1 10 11 12
+podman container run docker.io/alice/alpine-sum:v1 10 11 12
 ```
 
 results in
@@ -489,11 +486,11 @@ CMD ["10", "11"]
 Build and test it:
 
 ```bash
-$ podman image build -t alpine-sum:v2 .
+$ podman image build -t docker.io/alice/alpine-sum:v2 .
 # Most of the time you are interested in the sum of 10 and 11:
-$ podman container run alpine-sum:v2
+$ podman container run docker.io/alice/alpine-sum:v2
 # Sometimes you have more challenging calculations to do:
-$ podman container run alpine-sum:v2 12 13 14
+$ podman container run docker.io/alice/alpine-sum:v2 12 13 14
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -506,7 +503,7 @@ that does only sums, but you need an interactive shell to examine
 the container:
 
 ```bash
-$ podman container run -it alpine-sum:v2 /bin/sh
+$ podman container run -it docker.io/alice/alpine-sum:v2 /bin/sh
 ```
 
 will yield
@@ -518,7 +515,7 @@ Please supply integer arguments
 You need to override the `ENTRYPOINT` statement in the container image like so:
 
 ```bash
-$ podman container run -it --entrypoint /bin/sh alpine-sum:v2
+$ podman container run -it --entrypoint /bin/sh docker.io/alice/alpine-sum:v2
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -540,8 +537,8 @@ ENV PATH /home:$PATH
 Build and test it:
 
 ```bash
-$ podman image build -t alpine-sum:v3 .
-$ podman container run alpine-sum:v3 sum.py 1 2 3 4
+$ podman image build -t docker.io/alice/alpine-sum:v3 .
+$ podman container run docker.io/alice/alpine-sum:v3 sum.py 1 2 3 4
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
