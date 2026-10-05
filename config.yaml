@@ -64,12 +64,9 @@ episodes:
 - running-containers.md
 - managing-containers.md
 - docker-hub.md
-- morning-break.md
 - creating-container-images.md
 - advanced-containers.md
-- lunch.md
 - apptainer-overview.md
-- afternoon-break.md
 - apptainer-blast.md
 - reproduciblity.md
 
