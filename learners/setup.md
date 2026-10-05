@@ -49,7 +49,7 @@ can request that this path translation does not take place by adding an extra `/
 path. i.e. the command would become:
 
 ```
-docker run alpine cat //etc/os-release
+podman run alpine cat //etc/os-release
 ```
 
 This should suppress the path translation functionality in Git Bash.
