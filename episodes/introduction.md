@@ -42,7 +42,7 @@ Australian Research Data Commons, 2021. *How can software containers help your r
 
 Take a minute to think about challenges that you have experienced in using
 scientific software (or software in general!) for your research. Then,
-share with your neighbors and try to come up with a list of common gripes or
+share with your neighbours and try to come up with a list of common gripes or
 challenges.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -85,7 +85,7 @@ informally termed **dependency hell**.
 
 Again, take a minute to think about how the software challenges we've discussed
 could impact (or have impacted!) the quality of your work.
-Share your thoughts with your neighbors. What can go wrong if our software
+Share your thoughts with your neighbours. What can go wrong if our software
 doesn't work?
 
 
@@ -125,8 +125,8 @@ Just like shipping containers keep things together that should stay together, so
 
 Containers are an example of what's called **virtualization** -- having a
 second virtual computer running and accessible from a main or **host**
-computer. Another example of virtualization are **virtual machines** or
-VMs. A virtual machine typically contains a whole copy of an operating system in
+computer. Another example of virtualization is **virtual machines** (or
+VMs). A virtual machine typically contains a whole copy of an operating system in
 addition to its own filesystem and has to get booted up in the same way
 a computer would.
 A container is considered a lightweight version of a virtual machine;
@@ -190,7 +190,7 @@ a research context include:
   specify installed, then sharing a container image generated using this file with
   your collaborators for use on their computers or a remote computing resource
   (e.g. cloud-based or HPC system).
-- Archiving the container images so you can repeat analysis/modelling using the
+- Archiving your container images so you can repeat analysis/modelling using the
   same software and configuration in the future -- capturing your workflow.
 
 

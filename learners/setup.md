@@ -37,7 +37,7 @@ If you are unable to follow the above instructions to install Podman on your Win
 If you are using Git Bash as your terminal on Windows then you should be aware that you may run
 into issues running some of the commands in this lesson as Git Bash will automatically re-write
 any paths you specify at the command line into Windows versions of the paths and this will confuse
-the Docker container you are trying to use. For example, if you enter the command:
+the Podman container you are trying to use. For example, if you enter the command:
 
 ```
 podman run alpine cat /etc/os-release
@@ -59,6 +59,7 @@ This should suppress the path translation functionality in Git Bash.
 
 #### Apple macOS
 
+
 **You must have admin rights to run Podman!** Some parts of the lesson will work without running as admin but if you are unable to `Run as administrator` on your machine some elements of this workshop might not work as described.
 
 Ideally, you will be able to install the Podman Desktop, following the [Podman Desktop website's documentation](https://podman-desktop.io/docs/installation).
@@ -78,6 +79,7 @@ $ podman version
 ```
 
 ```output
+
 Client:        Podman Engine
 Version:       6.0.2
 API Version:   6.0.2
