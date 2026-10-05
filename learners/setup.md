@@ -16,9 +16,6 @@ Move the downloaded file to your Desktop and unzip it. It should unzip to a fold
 
 ### Software to install
 
-Podman's installation experience has steadily improved, however situations will arise in which installing Podman on your computer may not be straightforward unless you have a large amount of technical experience.
-Workshops try to have helpers on hand that have worked their way through the install process, but do be prepared for some troubleshooting.
-
 In most cases, you will need to have administrator rights on the computer in order to install the Podman software. If you are using a computer managed by your organisation and do not have administrator rights, you *may* be able to get your organisation's IT staff to install Podman for you. Alternatively your IT support staff *may* be able to give you remote access to a server that can run Podman commands.
 
 Please try to install the appropriate software from the list below depending on the operating system that your computer is running. Do let the workshop organisers know as early as possible if you are unable to install Podman using these instructions, as there may be other options available.
@@ -27,8 +24,7 @@ Please try to install the appropriate software from the list below depending on 
 
 **You must have admin rights to run Podman!** Some parts of the lesson will work without running as admin but if you are unable to `Run as administrator` on your machine some elements of this workshop might not work as described.
 
-Ideally, you will be able to install the Podman Desktop, following the [Podman website's documentation](https://podman-desktop.io/docs/installation/windows-install).
-Note that Podman for Windows relies upon installing the Windows Subsystem for Linux (WSL).
+Ideally, you will be able to install the Podman Desktop, following the [Podman Desktop website's documentation](https://podman-desktop.io/docs/installation).
 
 Note that the above installation instructions highlight a minimum version or "build" that is required to be able to install Podman on your Windows 10 system. See [Which version of Windows operating system am I running?](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808) for details of how to find out which version/build of Windows 10 you have.
 
@@ -63,35 +59,43 @@ This should suppress the path translation functionality in Git Bash.
 
 #### Apple macOS
 
-Ideally, you will be able to install the Podman software, from the
-[Podman Github Releases website](https://github.com/containers/podman/releases/).
-The current version of the Podman software appears to require macOS version 13 (Ventura) or later, but we have not tested this. If you're using an Intel-based Mac system, Podman does not provide installers for versions from 6.0.0 onwards. If you wish to use an installer from Podman's official releases to install on an Intel-based Mac, you'll need to use the latest v5.8.x release.
 
-If you already use Homebrew or MacPorts to manage your software, and would prefer to use those
-tools rather than Podman's installer, you can do so. For Homebrew, you can run the command
-`brew install podman`.
+**You must have admin rights to run Podman!** Some parts of the lesson will work without running as admin but if you are unable to `Run as administrator` on your machine some elements of this workshop might not work as described.
+
+Ideally, you will be able to install the Podman Desktop, following the [Podman Desktop website's documentation](https://podman-desktop.io/docs/installation).
+
+Versions are available for both Intel-based and Apple Silicon (Arm) macOS systems.
 
 #### Linux
 
-If it is not already installed on your system, the [Podman Installation instructions](https://podman.io/docs/installation#linux-distributions) page provides an overview of supported Linux distributions and pointers to relevant installation information. 
+Ideally, you will be able to install the Podman Desktop, following the [Podman Desktop website's documentation](https://podman-desktop.io/docs/installation).
 
 ### Verify Installation
 
-To quickly check if the Docker and client and server are working run the following command in a new terminal or ssh session:
+To quickly check if Podman is working run the following command in a new terminal or ssh session:
 
 ```bash
 $ podman version
 ```
 
 ```output
-Client:       Podman Engine
-Version:      5.8.8
-API Version:  5.8.8
-Go Version:   go1.27.1
-...
-Built:        Tue Sep 29 17:18:41 2026
-...
-OS/Arch:      darwin/amd64
+
+Client:        Podman Engine
+Version:       6.0.2
+API Version:   6.0.2
+Go Version:    go1.26.5
+Git Commit:    b28edb9ad70ce4317dc762ee9ce0a6d081d154e9
+Built:         Wed Jul 22 03:55:39 2026
+Build Origin:  pkginstaller
+OS/Arch:       darwin/arm64
+
+Server:       Podman Engine
+Version:      6.0.2
+API Version:  6.0.2
+Go Version:   go1.26.5-X:nodwarf5
+Git Commit:   b28edb9ad70ce4317dc762ee9ce0a6d081d154e9
+Built:        Tue Jul 21 01:00:00 2026
+OS/Arch:      linux/arm64
 ```
 
 The above output shows a successful installation and will vary based on your system.
