@@ -40,7 +40,8 @@ during the conversion to a Apptainer container image.)
 
 ## Download the required data
 
-Download the [`blast_example.tar.gz`](files/blast_example.tar.gz).
+
+Download the [blast_example.tar.gz](https://epcced.github.io/https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/raw/refs/heads/main/episodes/files/blast_example.tar.gz).
 
 Unpack the archive which contains the downloaded data required for the BLAST+ example:
 
