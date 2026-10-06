@@ -45,21 +45,21 @@ effectively splitting into two projects going in different directions. The Singu
 is being developed by a commercial entity, [Sylabs.io](https://sylabs.io/) who
 provide both the free, open source [SingularityCE (Community
 Edition)](https://sylabs.io/singularity) and Pro/Enterprise editions of the
-software. The original open source Singularity project has recently been
+software. The original open source Singularity project has been
 [renamed to
 Apptainer](https://apptainer.org/news/community-announcement-20211130/) and has
 moved into the Linux Foundation. While earlier versions of this course
 focused on versions of Singularity released before the project fork, we now
 base the course material on recent Apptainer releases. Despite this, the basic
 features of Apptainer/Singularity remain the same and so this material is
-equally applicable whether you're working with a recent Apptainer release or a
-slightly older Singularity version. Nonetheless, it is useful to be aware of
+equally applicable whether you're working with a recent Apptainer release or
+SingularityCE. Nonetheless, it is useful to be aware of
 this history and that you may see both Apptainer and Singularity being used
 within the research community over the coming months and years.
 
-Another point to note is that some systems that have a recent Singularity release
-installed may also provide a `apptainer` command that is simply a link to the
-`singularity` executable on the system. This helps to ensure workflows
+Another point to note is that some systems that have a recent Apptainer release
+installed may also provide a `singularity` command that is simply a link to the
+`apptainer` executable on the system. This helps to ensure workflows
 that use the original `singularity` command can continue to work as intended.
 
 For now, the remainder of this material refers to Apptainer but where you
@@ -156,7 +156,7 @@ total 60M
 
 ### Importing container images from files
 
-Earlier, we saw that instead on pushing a container image to an online repository, we can save it to a file (using `podman save`). Apptainer can also import OCI container images from files saved by Podman (and Docker) and convert them to SIF files. For example, suppose we have copied the `alpine-python.tar` container image file from our local system to the system with Apptainer, we can import and convert it with:
+Earlier, we saw that instead of pushing a container image to an online repository, we can save it to a file (using `podman save`). Apptainer can also import OCI container images from files saved by Podman (and Docker) and convert them to SIF files. For example, suppose we have copied the `alpine-python.tar` container image file from our local system to the system with Apptainer, we can import and convert it with:
 
 ```bash
 remote$ apptainer build alpine-python.sif docker-archive:alpine-python.tar
@@ -214,7 +214,7 @@ What just happened? When we use the `apptainer run` command, Apptainer does thre
 
 How did the container determine what to do when we ran it? What did running the container actually do to result in the displayed output?
 
-When you run a container from a Apptainer container image using the `apptainer run` command, the container runs the default run script that is embedded within the container image. This is a shell script that can be used to run commands, tools or applications stored within the container image on container startup. We can inspect the container image's run script using the `apptainer inspect` command:
+When you run a container from an Apptainer container image using the `apptainer run` command, the container runs the default run script that is embedded within the container image. This is a shell script that can be used to run commands, tools or applications stored within the container image on container startup. We can inspect the container image's run script using the `apptainer inspect` command:
 
 ```bash
 remote$ apptainer inspect -r hello.sif
@@ -231,7 +231,7 @@ This is different from Podman if we use it on our local system (as many people d
 
 ## Users within a Apptainer container
 
-The first thing to note is that if you run `whoami` within a container shell you should have seen the same username that you have on the host system when you ran the container. 
+The first thing to note is that if you run `whoami` within a container shell you should see the same username that you have on the host system where you ran the container. 
 
 For example, if we download an official Python image, open a terminal inside a running container and check our username, we should see it is the same as on the HPC system itself. (Note the use of `apptainer shell` to get an interactive session inside the container image.):
 
@@ -293,7 +293,7 @@ There is a default configuration of which files and directories are bound into t
 
 ## Files in Singularity containers
 
-**Q1:** What do you notice about the ownership of files in a container started from the `lolcow.sif` image? (e.g. take a look at the ownership of files in the root directory (`/`) and your home directory (`~/`)).
+**Q1:** What do you notice about the ownership of files in a container started from the `python-slim.sif` image? (e.g. take a look at the ownership of files in the root directory (`/`) and your home directory (`~/`)).
 
 **Exercise 1:** In this container, try creating a file in the root directory `/` (e.g. using `touch /myfile.dat`). What do you notice? Try removing the `/singularity` file. What happens in these two cases?
 
@@ -303,9 +303,9 @@ There is a default configuration of which files and directories are bound into t
 
 ## Answers
 
-**A1:** Use the `ls -l /` command to see a detailed file listing including file ownership and permission details. You should see that most of the files in the `/` directory are owned by `root`, as you would probably expect on any Linux system. If you look at the files in your home directory, they should be owned by you.
+**A1:** Use the `ls -l /` command to see a detailed file listing including file ownership and permission details. You should see that most of the files in the `/` directory are owned by `root`, as you would probably expect on any Linux system (although this depends on the Apptainer version/configuration and you may see many of the files owned by your own user). If you look at the files in your home directory, they should be owned by you.
 
-**A Ex1:** We've already seen from the previous answer that the files in `/` are owned by `root` so we would not expect to be able to create files there if we're not the root user. However, if you tried to remove `/singularity` you would have seen an error similar to the following: `cannot remove '/singularity': Read-only file system`. This tells us something else about the filesystem. It's not just that we do not have permission to delete the file, the filesystem itself is read-only so even the `root` user would not be able to edit/delete this file. We will look at this in more detail shortly.
+**A Ex1:** We've already seen from the previous answer that the files in `/` are likely to be owned by `root`, however, even if that's not the case, we wouldn't expect to be able to create files in the '/' directory on a Linux system if we're not the root user. However, if you tried to remove `/singularity` you would have seen an error similar to the following: `cannot remove '/singularity': Read-only file system`. This tells us something else about the filesystem. It's not just that we do not have permission to delete the file, the filesystem itself is read-only so even the `root` user would not be able to edit/delete this file. We will look at this in more detail shortly.
 
 **A Ex2:** Within your home directory, you _should_ be able to successfully create a file. Since you're seeing your home directory on the host system which has been bound into the container, when you exit and the container shuts down, the file that you created within the container should still be present when you look at your home directory on the host system.
 
