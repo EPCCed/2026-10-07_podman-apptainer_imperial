@@ -3,7 +3,7 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 
-This session aims to introduce the use of Podman and Apptainer containers with the goal of using them to effect reproducible computational environments. Such environments are useful for ensuring reproducible research outputs, for example.
+This session aims to introduce the use of Podman and Apptainer containers with the goal of using them to create reproducible computational environments. Such environments are useful for ensuring reproducible research outputs, for example.
 
 ::::::::::::::::::::::::::::::::::::::  objectives
 

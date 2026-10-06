@@ -115,7 +115,7 @@ More concretely, Docker Inc use the following definition of a container:
 
 <https://www.docker.com/resources/what-container/>
 
-The term container can be usefully considered with reference to shipping containers.
+The term 'container' can be understood by comparing it to shipping containers.
 Before shipping containers were developed, packing and unpacking cargo ships was time consuming and error prone, with high potential for different clients' goods to become mixed up. 
 Just like shipping containers keep things together that should stay together, software containers standardize the description and creation of a complete software system: you can drop a container into any computer with the container software installed (the 'container host'), and it should *just work*.
 

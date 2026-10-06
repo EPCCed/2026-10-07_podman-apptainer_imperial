@@ -105,7 +105,7 @@ Note that Zenodo is not the only option for archiving and generating persistent 
   update the image in future, previous versions can be retained within a
   container repository to be easily accessed, if this is required.
 - A built and archived container image can ensure a persistently bundled set of
-  software and dependecies. However, a `Dockerfile` provides a lightweight
+  software and dependencies. However, a `Dockerfile` provides a lightweight
   means of storing a container definition that can be used to re-create a
   container image at a later time. If you're taking this approach, ensure that
   you specify software package and dependency versions within your `Dockerfile`
@@ -118,7 +118,7 @@ Note that Zenodo is not the only option for archiving and generating persistent 
 
 ## Container Granularity
 
-As mentioned above, one of the decisions you may need to make when containerising your research workflows
+As mentioned above, one of the decisions you may need to make when containerizing your research workflows
 is what level of *granularity* you wish to employ. The two extremes of this decision could be characterized
 as:
 
@@ -133,7 +133,7 @@ Of course, many real applications will sit somewhere between these two extremes.
 
 What are the advantages and disadvantages of the two approaches to container granularity for research
 workflows described above? Think about this
-and write a few bullet points for advantages and disadvantages for each approach in the course Etherpad.
+and write a few bullet points for advantages and disadvantages for each approach.
 
 :::::::::::::::  solution
 

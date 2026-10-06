@@ -21,7 +21,7 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-This episode provides a quick introduction to the Apptainer container platform building on the material we have already covers with Podman. It is not an exhaustive tour of Apptainer features - you can check out the [Apptainer User Guide](https://apptainer.org/docs/user/main/index.html) for more information.
+This episode provides a quick introduction to the Apptainer container platform building on the material we have already covered with Podman. It is not an exhaustive tour of Apptainer features - you can check out the [Apptainer User Guide](https://apptainer.org/docs/user/main/index.html) for more information.
 
 ## What is Apptainer?
 
@@ -29,7 +29,7 @@ This episode provides a quick introduction to the Apptainer container platform b
 
 in some ways, Apptainer is similar to Podman. However, in other ways, particularly in terms of the system's architecture, it is fundamentally different. These differences mean that Apptainer is particularly well-suited to running on shared platforms such as distributed, High Performance Computing (HPC) platforms.
 
-Apptainer runs containers from container images which, as we discussed, are essentially a virtual computer disk that contains all of the necessary software, libraries and configuration to run one or more applications or undertake a particular task, e.g. to support a specific research project. This saves you the time and effort of installing and configuring software on your own system or setting up a new computer from scratch, as you can simply run a Apptainer container from an image and have a virtual environment that is equivalent to the one used by the person who created the image. Apptainer/Apptainer is increasingly widely used in the research community for supporting research projects due to its support for shared computing platforms.
+Apptainer runs containers from container images which, as we discussed, are essentially a virtual computer disk that contains all of the necessary software, libraries and configuration to run one or more applications or undertake a particular task, e.g. to support a specific research project. This saves you the time and effort of installing and configuring software on your own system or setting up a new computer from scratch, as you can simply run an Apptainer container from an image and have a virtual environment that is equivalent to the one used by the person who created the image. Apptainer is increasingly widely used in the research community for supporting research projects due to its support for shared computing platforms.
 
 System administrators will not, generally, install Docker on shared computing platforms such as lab desktops, research clusters or HPC platforms because the design of Docker presents potential security issues for shared platforms with multiple users. Apptainer, on the other hand, can be run by end-users entirely within "user space", that is, no special administrative privileges need to be assigned to a user in order for them to run and interact with containers on a platform where Apptainer has been installed.
 
@@ -148,7 +148,7 @@ total 60M
 -rwxr-xr-x. 1 auser group 360K Sep 17 08:43 hello.sif
 ```
 
-### Importing contianer images from files
+### Importing container images from files
 
 Earlier, we saw that instead on pushing a container image to an online repository, we can save it to a file (using `podman save`). Apptainer can also import OCI container images from files saved by Podman (and Docker) and convert them to SIF files. For example, suppose we have copied the `alpine-python.tar` container image file from our local system to the system with Apptainer, we can import and convert it with:
 
@@ -166,7 +166,7 @@ Remember that container images built in this way must have the correct architect
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-### Running a Apptainer container
+### Running an Apptainer container
 
 We can now run a container based on the `hello.sif` container image:
 
@@ -219,7 +219,7 @@ This shows us the script within the `hello.sif` container image configured to ru
 
 ## Accessing local files in Apptainer containers
 
-The key concept to remember when running a Singularity container, you only have the same permissions to access files as the user on the host system that you start the container as. 
+The key concept to remember when running an Apptainer container, you only have the same permissions to access files as the user on the host system that you start the container as. 
 
 This is different from Podman if we use it on our local system (as many people did in the early part of this course) where you generally have access to any files you wish with administrator rights. (Podman can be made available on shared systems where access to data is restricted as it is for Apptainer - but using a different mechanism.)
 
@@ -299,7 +299,7 @@ There is a default configuration of which files and directories are bound into t
 
 **A1:** Use the `ls -l /` command to see a detailed file listing including file ownership and permission details. You should see that most of the files in the `/` directory are owned by `root`, as you would probably expect on any Linux system. If you look at the files in your home directory, they should be owned by you.
 
-**A Ex1:** We've already seen from the previous answer that the files in `/` are owned by `root` so we would nott expect to be able to create files there if we're not the root user. However, if you tried to remove `/singularity` you would have seen an error similar to the following: `cannot remove '/singularity': Read-only file system`. This tells us something else about the filesystem. It's not just that we do not have permission to delete the file, the filesystem itself is read-only so even the `root` user would not be able to edit/delete this file. We will look at this in more detail shortly.
+**A Ex1:** We've already seen from the previous answer that the files in `/` are owned by `root` so we would not expect to be able to create files there if we're not the root user. However, if you tried to remove `/singularity` you would have seen an error similar to the following: `cannot remove '/singularity': Read-only file system`. This tells us something else about the filesystem. It's not just that we do not have permission to delete the file, the filesystem itself is read-only so even the `root` user would not be able to edit/delete this file. We will look at this in more detail shortly.
 
 **A Ex2:** Within your home directory, you _should_ be able to successfully create a file. Since you're seeing your home directory on the host system which has been bound into the container, when you exit and the container shuts down, the file that you created within the container should still be present when you look at your home directory on the host system.
 

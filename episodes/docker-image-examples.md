@@ -56,7 +56,7 @@ following resources show what it can look like:
 
 ## Seeking Examples
 
-Do you have another example of using Docker in a workflow related to your field?  Please [open a lesson issue] or [submit a pull request] to add it to this episode and the extras section of the lesson.
+Do you have another example of using Docker in a workflow related to your field?  Please open a lesson issue or [submit a pull request] to add it to this episode and the extras section of the lesson.
 
 
 

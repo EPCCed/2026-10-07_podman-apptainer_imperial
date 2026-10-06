@@ -5,6 +5,8 @@ title: 'Glossary'
 ## Glossary
 
 <dl>
+   <dt>Apptainer</dt>
+   <dd>A software framework for creating, running and managing <em>containers</em>. Used to be known as "Singularity". Particularly used on HPC multi-user environments.</dd>
    <dt>Command-line argument/option</dt>
    <dd><a href="https://glosario.carpentries.org/en/#command_line_argument" alt="Link to Carpentries Glossario">See the Carpentries Glossario entry</a></dd>
    <dt>Command-line interface (CLI)</dt>
@@ -25,15 +27,15 @@ title: 'Glossary'
    <dd><a href="https://glosario.carpentries.org/en/#doi" alt="Link to Carpentries Glossario">See the Carpentries Glossario entry</a></dd>
    <dt>Docker</dt>
    <dd>A software framework for creating, running and managing <em>containers</em>.</dd>
-   <dt>Docker build context</dt>
+   <dt>Docker/Podman build context</dt>
    <dd>The docker build command builds Docker images from a Dockerfile and a "context". A build's context is the set of files located in the specified PATH or URL.</dd>
    <dt>Docker Hub</dt>
    <dd>An online library of Docker <em>container images</em>.</dd>
    <dt>Docker Hub repository</dt>
    <dd>A collection of related Docker <em>container images</em> hosted on Docker Hub.</dd>
-   <dt>Docker tag</dt>
+   <dt>Docker/Podman tag</dt>
    <dd>The specific version identifier associated with a Docker <em>container image</em>.</dd>
-   <dt>Dockerfile</dt>
+   <dt>Dockerfile/Containerfile</dt>
    <dd>The file containing the commands to build a Docker <em>container image</em> along with the <em>Docker context</em>.</dd>
    <dt>Filesystem</dt>
    <dd><a href="https://glosario.carpentries.org/en/#filesystem" alt="Link to Carpentries Glossario">See the Carpentries Glossario entry</a></dd>
@@ -49,6 +51,8 @@ title: 'Glossary'
    <dd>Random Access Memory (RAM) is where data the CPU is working with is temporarily stored.</dd>
    <dt>Operating system (OS)</dt>
    <dd><a href="https://glosario.carpentries.org/en/#operating_system" alt="Link to Carpentries Glossario">See the Carpentries Glossario entry</a></dd>
+   <dt>Podman</dt>
+   <dd>A software framework for creating, running and managing <em>containers</em>.</dd>
    <dt>Reproducible research</dt>
    <dd><a href="https://glosario.carpentries.org/en/#reproducible_research" alt="Link to Carpentries Glossario">See the Carpentries Glossario entry</a></dd>
    <dt>Software library</dt>
