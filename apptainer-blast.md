@@ -40,12 +40,12 @@ during the conversion to a Apptainer container image.)
 
 ## Download the required data
 
-Download the [blast_example.tar.gz]({{ page.root }}/files/blast_example.tar.gz).
+Download the [blast_example.tar.gz](https://epcced.github.io/2026-10-07_podman-apptainer_imperial/raw/refs/heads/gh-pages/files/blast_example.tar.gz).
 
 Unpack the archive which contains the downloaded data required for the BLAST+ example:
 
 ```bash
-remote$ wget https://github.com/EPCCed/2025-02-17_containers_cambridge/raw/refs/heads/gh-pages/files/blast_example.tar.gz
+remote$ wget https://epcced.github.io/2026-10-07_podman-apptainer_imperial/raw/refs/heads/gh-pages/files/blast_example.tar.gz
 remote$ tar -xvf blast_example.tar.gz
 ```
 
