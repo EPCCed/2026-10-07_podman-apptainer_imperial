@@ -376,7 +376,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Overview of Apptainer</h1>
-        <p>Last updated on 2026-10-04 |
+        <p>Last updated on 2026-10-06 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/apptainer-overview.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -419,10 +419,10 @@ containers?</li>
 </div>
 </div>
 <p>This episode provides a quick introduction to the Apptainer container
-platform building on the material we have already covers with Podman. It
-is not an exhaustive tour of Apptainer features - you can check out the
-<a href="https://apptainer.org/docs/user/main/index.html" class="external-link">Apptainer User
-Guide</a> for more information.</p>
+platform building on the material we have already covered with Podman.
+It is not an exhaustive tour of Apptainer features - you can check out
+the <a href="https://apptainer.org/docs/user/main/index.html" class="external-link">Apptainer
+User Guide</a> for more information.</p>
 <section><h2 class="section-heading" id="what-is-apptainer">What is Apptainer?<a class="anchor" aria-label="anchor" href="#what-is-apptainer"></a></h2>
 <hr class="half-width"><p><a href="https://apptainer.org/" class="external-link">Apptainer</a> (or <a href="https://sylabs.io/singularity/" class="external-link">Singularity</a>, we’ll get to this
 in a minute…) is another container platform.</p>
@@ -437,11 +437,11 @@ the necessary software, libraries and configuration to run one or more
 applications or undertake a particular task, e.g. to support a specific
 research project. This saves you the time and effort of installing and
 configuring software on your own system or setting up a new computer
-from scratch, as you can simply run a Apptainer container from an image
+from scratch, as you can simply run an Apptainer container from an image
 and have a virtual environment that is equivalent to the one used by the
-person who created the image. Apptainer/Apptainer is increasingly widely
-used in the research community for supporting research projects due to
-its support for shared computing platforms.</p>
+person who created the image. Apptainer is increasingly widely used in
+the research community for supporting research projects due to its
+support for shared computing platforms.</p>
 <p>System administrators will not, generally, install Docker on shared
 computing platforms such as lab desktops, research clusters or HPC
 platforms because the design of Docker presents potential security
@@ -603,7 +603,7 @@ you run the <code>ls</code> command, you should see that the
 </div>
 </div>
 <div class="section level3">
-<h3 id="importing-contianer-images-from-files">Importing contianer images from files<a class="anchor" aria-label="anchor" href="#importing-contianer-images-from-files"></a></h3>
+<h3 id="importing-container-images-from-files">Importing container images from files<a class="anchor" aria-label="anchor" href="#importing-container-images-from-files"></a></h3>
 <p>Earlier, we saw that instead on pushing a container image to an
 online repository, we can save it to a file (using
 <code>podman save</code>). Apptainer can also import OCI container
@@ -637,7 +637,7 @@ platform they are running on.</p>
 </div>
 </div>
 <div class="section level3">
-<h3 id="running-a-apptainer-container">Running a Apptainer container<a class="anchor" aria-label="anchor" href="#running-a-apptainer-container"></a></h3>
+<h3 id="running-an-apptainer-container">Running an Apptainer container<a class="anchor" aria-label="anchor" href="#running-an-apptainer-container"></a></h3>
 <p>We can now run a container based on the <code>hello.sif</code>
 container image:</p>
 <div class="codewrapper sourceCode" id="cb10">
@@ -706,7 +706,7 @@ image configured to run by default when we use the
 <code>apptainer run</code> command.</p>
 </div>
 </section><section><h2 class="section-heading" id="accessing-local-files-in-apptainer-containers">Accessing local files in Apptainer containers<a class="anchor" aria-label="anchor" href="#accessing-local-files-in-apptainer-containers"></a></h2>
-<hr class="half-width"><p>The key concept to remember when running a Singularity container, you
+<hr class="half-width"><p>The key concept to remember when running an Apptainer container, you
 only have the same permissions to access files as the user on the host
 system that you start the container as.</p>
 <p>This is different from Podman if we use it on our local system (as
@@ -853,7 +853,7 @@ Linux system. If you look at the files in your home directory, they
 should be owned by you.</p>
 <p><strong>A Ex1:</strong> We’ve already seen from the previous answer
 that the files in <code>/</code> are owned by <code>root</code> so we
-would nott expect to be able to create files there if we’re not the root
+would not expect to be able to create files there if we’re not the root
 user. However, if you tried to remove <code>/singularity</code> you
 would have seen an error similar to the following:
 <code>cannot remove '/singularity': Read-only file system</code>. This
@@ -995,9 +995,9 @@ inside a running container.</li>
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/docker-introduction/instructor/apptainer-overview.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/instructor/apptainer-overview.html",
-  "dateCreated": "2026-10-05",
-  "dateModified": "2026-10-04",
-  "datePublished": "2026-10-05"
+  "dateCreated": "2026-10-06",
+  "dateModified": "2026-10-06",
+  "datePublished": "2026-10-06"
 }
 
   </script><script>

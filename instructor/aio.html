@@ -439,7 +439,7 @@
         
 <section id="aio-introduction"><p>Content from <a href="introduction.html">Introducing Containers</a></p>
 <hr>
-<p>Last updated on 2026-10-05 |
+<p>Last updated on 2026-10-06 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
@@ -611,9 +611,9 @@ all its dependencies so the application runs reliably from one computing
 environment to another.</p>
 </blockquote>
 <p><a href="https://www.docker.com/resources/what-container/" class="external-link uri">https://www.docker.com/resources/what-container/</a></p>
-<p>The term container can be usefully considered with reference to
-shipping containers. Before shipping containers were developed, packing
-and unpacking cargo ships was time consuming and error prone, with high
+<p>The term ‘container’ can be understood by comparing it to shipping
+containers. Before shipping containers were developed, packing and
+unpacking cargo ships was time consuming and error prone, with high
 potential for different clients’ goods to become mixed up. Just like
 shipping containers keep things together that should stay together,
 software containers standardize the description and creation of a
@@ -2495,7 +2495,7 @@ work?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>A quick search should hopefully show that the way to install R on
 Alpine Linux is:</p>
@@ -2622,7 +2622,7 @@ Dockerfile to replicate the installation we did above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution: </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Based on our experience above, edit the <code>Dockerfile</code> (in
 your text editor of choice) to look like this:</p>
@@ -2731,7 +2731,7 @@ different, like print “hello world”?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>To see your new image, run <code>podman image ls</code>. You
@@ -2969,7 +2969,7 @@ others can create containers from your container images.</li>
 </div>
 </section></section><section id="aio-advanced-containers"><p>Content from <a href="advanced-containers.html">Creating More Complex Container Images</a></p>
 <hr>
-<p>Last updated on 2026-10-05 |
+<p>Last updated on 2026-10-06 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/advanced-containers.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 60 minutes</p>
@@ -3052,7 +3052,7 @@ script using a container based on our recently created
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>We can run a container from the alpine-python container image
 using:</p>
@@ -3151,7 +3151,7 @@ Podman documentation</a>.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a><span class="ex">$</span> podman container run <span class="at">--mount</span> type=bind,source=<span class="va">${PWD}</span>,target=/temp docker.io/lice/alpine-python python3 sum.py</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a><span class="ex">$</span> podman container run <span class="at">--mount</span> type=bind,source=<span class="va">${PWD}</span>,target=/temp docker.io/alice/alpine-python python3 sum.py</span></code></pre>
 </div>
 <p>But we get the same error!</p>
 <div class="codewrapper">
@@ -3221,7 +3221,7 @@ name?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>This script comes from <a href="https://wiki.python.org/moin/SimplePrograms" class="external-link">the Python Wiki</a>
 and is set to add all numbers that are passed to it as arguments.</p>
@@ -3248,7 +3248,7 @@ you characterize the key components of a Podman command?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Here’s a breakdown of each piece of the command above</p>
 <ul>
@@ -3292,7 +3292,7 @@ computer? What’s inside?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The Podman command to run the container interactively is:</p>
 <div class="codewrapper sourceCode" id="cb10">
@@ -3396,7 +3396,7 @@ this one. Once inside, try running the Python script.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>You can start the container interactively like so:</p>
 <div class="codewrapper sourceCode" id="cb16">
@@ -3655,7 +3655,7 @@ images by using the <code>COPY</code> instruction in your
 </div>
 </section></section><section id="aio-apptainer-overview"><p>Content from <a href="apptainer-overview.html">Overview of Apptainer</a></p>
 <hr>
-<p>Last updated on 2026-10-04 |
+<p>Last updated on 2026-10-06 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/apptainer-overview.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
@@ -3695,10 +3695,10 @@ containers?</li>
 </div>
 </div>
 <p>This episode provides a quick introduction to the Apptainer container
-platform building on the material we have already covers with Podman. It
-is not an exhaustive tour of Apptainer features - you can check out the
-<a href="https://apptainer.org/docs/user/main/index.html" class="external-link">Apptainer User
-Guide</a> for more information.</p>
+platform building on the material we have already covered with Podman.
+It is not an exhaustive tour of Apptainer features - you can check out
+the <a href="https://apptainer.org/docs/user/main/index.html" class="external-link">Apptainer
+User Guide</a> for more information.</p>
 <section><h2 class="section-heading" id="what-is-apptainer">What is Apptainer?<a class="anchor" aria-label="anchor" href="#what-is-apptainer"></a>
 </h2>
 <hr class="half-width">
@@ -3715,11 +3715,11 @@ the necessary software, libraries and configuration to run one or more
 applications or undertake a particular task, e.g. to support a specific
 research project. This saves you the time and effort of installing and
 configuring software on your own system or setting up a new computer
-from scratch, as you can simply run a Apptainer container from an image
+from scratch, as you can simply run an Apptainer container from an image
 and have a virtual environment that is equivalent to the one used by the
-person who created the image. Apptainer/Apptainer is increasingly widely
-used in the research community for supporting research projects due to
-its support for shared computing platforms.</p>
+person who created the image. Apptainer is increasingly widely used in
+the research community for supporting research projects due to its
+support for shared computing platforms.</p>
 <p>System administrators will not, generally, install Docker on shared
 computing platforms such as lab desktops, research clusters or HPC
 platforms because the design of Docker presents potential security
@@ -3888,7 +3888,7 @@ you run the <code>ls</code> command, you should see that the
 </div>
 </div>
 <div class="section level3">
-<h3 id="importing-contianer-images-from-files">Importing contianer images from files<a class="anchor" aria-label="anchor" href="#importing-contianer-images-from-files"></a>
+<h3 id="importing-container-images-from-files">Importing container images from files<a class="anchor" aria-label="anchor" href="#importing-container-images-from-files"></a>
 </h3>
 <p>Earlier, we saw that instead on pushing a container image to an
 online repository, we can save it to a file (using
@@ -3923,7 +3923,7 @@ platform they are running on.</p>
 </div>
 </div>
 <div class="section level3">
-<h3 id="running-a-apptainer-container">Running a Apptainer container<a class="anchor" aria-label="anchor" href="#running-a-apptainer-container"></a>
+<h3 id="running-an-apptainer-container">Running an Apptainer container<a class="anchor" aria-label="anchor" href="#running-an-apptainer-container"></a>
 </h3>
 <p>We can now run a container based on the <code>hello.sif</code>
 container image:</p>
@@ -4007,7 +4007,7 @@ image configured to run by default when we use the
 </section><section><h2 class="section-heading" id="accessing-local-files-in-apptainer-containers">Accessing local files in Apptainer containers<a class="anchor" aria-label="anchor" href="#accessing-local-files-in-apptainer-containers"></a>
 </h2>
 <hr class="half-width">
-<p>The key concept to remember when running a Singularity container, you
+<p>The key concept to remember when running an Apptainer container, you
 only have the same permissions to access files as the user on the host
 system that you start the container as.</p>
 <p>This is different from Podman if we use it on our local system (as
@@ -4158,7 +4158,7 @@ Linux system. If you look at the files in your home directory, they
 should be owned by you.</p>
 <p><strong>A Ex1:</strong> We’ve already seen from the previous answer
 that the files in <code>/</code> are owned by <code>root</code> so we
-would nott expect to be able to create files there if we’re not the root
+would not expect to be able to create files there if we’re not the root
 user. However, if you tried to remove <code>/singularity</code> you
 would have seen an error similar to the following:
 <code>cannot remove '/singularity': Read-only file system</code>. This
@@ -4249,7 +4249,7 @@ inside a running container.</li>
 </div>
 </section></section><section id="aio-apptainer-blast"><p>Content from <a href="apptainer-blast.html">Using Apptainer to Run BLAST+</a></p>
 <hr>
-<p>Last updated on 2026-09-17 |
+<p>Last updated on 2026-10-06 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/apptainer-blast.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 60 minutes</p>
@@ -4286,7 +4286,7 @@ tool.</li>
 <p>We have now learned enough to be able to use Apptainer to deploy
 software on a remote HPC system without us needing to install the
 software itself on the host system.</p>
-<p>In this section we will demonstrate the use of a Apptainer container
+<p>In this section we will demonstrate the use of an Apptainer container
 image that provides the BLAST+ bioinformatics software. The BLAST+ suite
 of software tools is typically complex to install from source by hand on
 a HPC system. Using containers we are able to avoid this complexity and
@@ -4622,7 +4622,7 @@ access for us</li>
 <p>{% include links.md %}</p>
 </section></section><section id="aio-reproducibility"><p>Content from <a href="reproducibility.html">Containers in Research Workflows: Reproducibility and Granularity</a></p>
 <hr>
-<p>Last updated on 2026-10-05 |
+<p>Last updated on 2026-10-06 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/reproducibility.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 25 minutes</p>
@@ -4800,7 +4800,7 @@ that if you update the image in future, previous versions can be
 retained within a container repository to be easily accessed, if this is
 required.</li>
 <li>A built and archived container image can ensure a persistently
-bundled set of software and dependecies. However, a
+bundled set of software and dependencies. However, a
 <code>Dockerfile</code> provides a lightweight means of storing a
 container definition that can be used to re-create a container image at
 a later time. If you’re taking this approach, ensure that you specify
@@ -4817,7 +4817,7 @@ results.</li>
 </h2>
 <hr class="half-width">
 <p>As mentioned above, one of the decisions you may need to make when
-containerising your research workflows is what level of
+containerizing your research workflows is what level of
 <em>granularity</em> you wish to employ. The two extremes of this
 decision could be characterized as:</p>
 <ul>
@@ -4839,7 +4839,7 @@ two extremes.</p>
 <p>What are the advantages and disadvantages of the two approaches to
 container granularity for research workflows described above? Think
 about this and write a few bullet points for advantages and
-disadvantages for each approach in the course Etherpad.</p>
+disadvantages for each approach.</p>
 </div>
 </div>
 </div>
@@ -5000,9 +5000,9 @@ allows us to capture our work and enables reproducibility.</li>
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/docker-introduction/instructor/aio.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/instructor/aio.html",
-  "dateCreated": "2026-10-05",
-  "dateModified": "2026-10-05",
-  "datePublished": "2026-10-05"
+  "dateCreated": "2026-10-06",
+  "dateModified": "2026-10-06",
+  "datePublished": "2026-10-06"
 }
 
   </script><script>
