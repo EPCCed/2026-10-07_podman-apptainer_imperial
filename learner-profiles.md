@@ -56,7 +56,7 @@ research group. She currently wants to know how to use preexisting Docker contai
 but may need to create her own containers in the future.
 
 ***Virat is a grad student who is running an obscure bioinformatics tool (from a GitHub
-repo) that depends on a number of other tools that need to be pre-installed .*** He wants to be able to
+repo) that depends on a number of other tools that need to be pre-installed.*** He wants to be able to
 run on multiple resources and have his undergrad assistant use the same tools. Virat
 has command line experience and has struggled his way through complex installations
 but he has no formal CS background - he only knows to use containers because a departmental

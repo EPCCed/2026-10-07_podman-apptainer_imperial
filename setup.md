@@ -16,9 +16,9 @@ Move the downloaded file to your Desktop and unzip it. It should unzip to a fold
 
 ### Software to install
 
-In most cases, you will need to have administrator rights on the computer in order to install the Podman software. If you are using a computer managed by your organisation and do not have administrator rights, you *may* be able to get your organisation's IT staff to install Podman for you. Alternatively your IT support staff *may* be able to give you remote access to a server that can run Podman commands.
+In most cases, you will need to have administrator rights on the computer in order to install the Podman software. If you are using a computer managed by your organization and do not have administrator rights, you *may* be able to get your organization's IT staff to install Podman for you. Alternatively your IT support staff *may* be able to give you remote access to a server that can run Podman commands.
 
-Please try to install the appropriate software from the list below depending on the operating system that your computer is running. Do let the workshop organisers know as early as possible if you are unable to install Podman using these instructions, as there may be other options available.
+Please try to install the appropriate software from the list below depending on the operating system that your computer is running. Do let the workshop organizers know as early as possible if you are unable to install Podman using these instructions, as there may be other options available.
 
 #### Microsoft Windows
 

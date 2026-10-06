@@ -20,7 +20,7 @@ exercises: 30
 
 We have now learned enough to be able to use Apptainer to deploy software on a remote HPC system without us needing to install the software itself on the host system.
 
-In this section we will demonstrate the use of a Apptainer container image that provides the BLAST+ bioinformatics software. The BLAST+ suite of software tools is typically complex to install from source by hand on a HPC system. Using containers we are able to avoid this complexity and get up and running with the software quickly. 
+In this section we will demonstrate the use of an Apptainer container image that provides the BLAST+ bioinformatics software. The BLAST+ suite of software tools is typically complex to install from source by hand on a HPC system. Using containers we are able to avoid this complexity and get up and running with the software quickly. 
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 

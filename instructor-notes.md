@@ -30,12 +30,12 @@ expected with the lesson content.
   also include a brief general introduction and time to check your learners'
   software installations.
 - **Install Issues**: From the feedback we have received about past lessons, computers running
-  Microsoft Windows have encountered the largest number of challenges setting up Docker.
+  Microsoft Windows have encountered the largest number of challenges setting up Podman.
   Consider having people check their install in advance at a separate time or come early.
   In online workshops, consider using your video conferencing software's "breakout room" functionality
   to form smaller groups within which participants can troubleshoot their installations.
-  Note that you should use a more complex command than `docker --version` to test the installation, as the
-  simplest `docker` commands to not connect to the Docker backend.
+  Note that you should use a more complex command than `podman --version` to test the installation, as the
+  simplest `podman` commands do not connect to the Podman backend.
 - **Virtualization Illustration**: When going through the intro to containers,
   consider demonstrating what this might look like by having two shells (or shell tabs)
   open, one on your host computer and one into a container you started before the
@@ -117,7 +117,7 @@ to use it as well.
 
 Considering things from a higher level, we also highlight three core groups of
 learners, based on job roles, who you may find attending lessons covering this
-material. While recognising that there are likely to be many learners who
+material. While recognizing that there are likely to be many learners who
 don't fit into one of the following groups, or who span more than one of them,
 we hope that highlighting these groups helps to provide an example of the
 different types of skills and expertise that learners engaging with this
@@ -207,7 +207,7 @@ Some suggested pathways include:
 
 - **Cloud computing**
   
-  - *Common learner profiles:* Sytems professional, RSE
+  - *Common learner profiles:* Systems professional, RSE
 
 - **High performance computing**
   
@@ -217,7 +217,7 @@ Some suggested pathways include:
 
 - difference between a container and container image
 - what it means for a container to be stopped (but not removed)
-- differences in container behaviour between hosts that are running Linux compared to hosts running macOS or Microsoft Windows
+- differences in container behavior between hosts that are running Linux compared to hosts running macOS or Microsoft Windows
   - on Linux hosts there is usually only one OS kernel shared between the host and the containers, so less separation than is typical when using macOS or Windows hosts. This can lead to effects such as volume mounts behaving differently, e.g., regarding filesystem permissions, user and group mappings between the host and the container.
 
 

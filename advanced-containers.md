@@ -145,7 +145,7 @@ topic. You can find more information on the different mount types in
 Let's try running the command now:
 
 ```bash
-$ podman container run --mount type=bind,source=${PWD},target=/temp docker.io/lice/alpine-python python3 sum.py
+$ podman container run --mount type=bind,source=${PWD},target=/temp docker.io/alice/alpine-python python3 sum.py
 ```
 
 But we get the same error!
