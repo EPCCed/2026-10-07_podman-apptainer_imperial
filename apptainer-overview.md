@@ -71,10 +71,16 @@ replace references to `apptainer` with `singularity`, if you wish.
 ## Checking Apptainer works
 
 [Login to Cirrus](https://docs.cirrus.ac.uk/user-guide/connecting/) using the
-login address `login.cirrus.ac.uk`:
+login address `login.cirrus.ac.uk`. **Note:** you will need to have both an SSH key and
+MFA code setup to login to Cirrus.
 
 ```bash
 ssh -i /path/to/ssh-key user@login.cirrus.ac.uk
+
+(userlogin.cirrus.ac.uk) Expecting a code for login.cirrus.ac.uk:user
+
+TOTP code: 
+
 ```
 
 Now check that the `apptainer` command is available in your terminal:
