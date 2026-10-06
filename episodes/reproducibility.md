@@ -19,7 +19,7 @@ exercises: 5
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Although this workshop is titled "Reproducible computational environments using containers",
-so far we have mostly covered the mechanics of using Podman with only passing reference to
+so far we have mostly covered the mechanics of using Podman/Apptainer with only passing reference to
 the reproducibility aspects. In this section, we discuss these aspects in more detail.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -33,7 +33,7 @@ Note that reproducibility aspects of software and containers are an active area 
 
 ## Reproducibility
 
-By *reproducibility* here we mean the ability of someone else (or your future self) being able to reproduce
+By *reproducibility* here we mean the ability of someone else (or your future self) to reproduce
 what you did computationally at a particular time (be this in research, analysis or something else)
 as closely as possible, even if they do not have access to exactly the same hardware resources
 that you had when you did the original work.
@@ -160,6 +160,7 @@ This is not an exhaustive list but some of the advantages and disadvantages coul
   - Individual components can be re-used for different, but related, work
   - Individual parts are smaller in size making them easier to distribute
   - Avoid dependency issues between different pieces of software
+  - Easier to update individual pieces of software or tools (e.g. to address security vulnerabilites)
   - Easier to test
 - Disadvantage:
   - More difficult to document

@@ -20,20 +20,22 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 In the previous episode, we ran a few different containers derived from different
-container images: `hello-world`, `alpine`,
-and maybe `ubuntu`. Where did these container images come from?  The Docker Hub!
+container images - these included: `hello-world`, `alpine`,
+and maybe `ubuntu`. Where did these specific container images come from?  The Docker Hub!
 
 ## Introducing the Docker Hub
 
 The Docker Hub is an online repository of container images, a vast number of which are publicly available. A large number of the container images are curated by the developers of the software that they package. Also, many commonly used pieces of software that have been containerized into images are officially endorsed, which means that you can trust the container images to have been checked for functionality, stability, and that they don't contain malware.
 
-Other registries do exist. If Podman is used to pull the `hello-world` image with no further information, as we did earlier, it will be retrieved from [Quay](https://quay.io/). Other popular registries are [Harbor](https://goharbor.io/) and the GitHub Container Registry . It is also possible to set up a local registry using Podman itself or products like Harbor or Quay. These may be specialised for use by a particular organisation.
+Other registries do exist. If Podman is used to pull the `hello` image with no further information, as we did earlier, it will be retrieved from [Quay](https://quay.io/). _Note that with Podman's default configuration, both `hello` and `hello-world` are configured as aliases for Podman's `hello` image stored on Quay. Docker also has its own `hello-world` image which is stored on Docker Hub. We also pulled this image in an earlier example by using the alias `docker.io/hello-world`_.
+
+Other popular registries are [Harbor](https://goharbor.io/) and the [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry). It is also possible to set up a local registry using Podman itself or products like Harbor or Quay. These may be specialised for use by a particular organisation.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Podman can be used without connecting to the Docker Hub
 
-Note that while the Docker Hub is well integrated into Podman functionality, the Docker Hub is certainly not required for all types of use of containers. For example, some organizations may run container infrastructure that is entirely disconnected from the Internet.
+Note that while the Docker Hub is well integrated into Podman functionality, the Docker Hub is certainly not required for all types of use of containers. For example, some organizations may run their own local container infrastructure that is entirely disconnected from the Internet.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -44,9 +46,9 @@ As an example of a Docker Hub page, let's explore the page for the official Pyth
 
 The top-left provides information about the name, short description, popularity (i.e., more than a billion downloads in the case of this container image), and endorsements.
 
-The top-right provides the command to pull this container image to your computer.
+On the right hand side of the page, within the "Tag summary" box, is the command to pull this container image to your computer.
 
-The main body of the page contains many used headings, such as:
+The main body of the page contains many sections, such as:
 
 - Which tags (i.e., container image versions) are supported;
 - Summary information about where to get help, which computer architectures are supported, etc.;
@@ -54,7 +56,7 @@ The main body of the page contains many used headings, such as:
 - Examples of how to use the container image; and
 - The license that applies.
 
-The "How to use the image" section of most container images' pages will provide examples that are likely to cover your intended use of the container image.
+The "How to use this image" section of most container images' pages will provide examples that are likely to cover your intended use of the container image.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -69,7 +71,7 @@ image's](https://quay.io/repository/lib/python) page on Quay.
 
 ## Exploring Container Image Versions
 
-Registries will often provide many different versions of container images,
+Registries will often provide many different versions of a given container image,
 based on the version of the software inside.  These
 versions are indicated by "tags". When referring to the specific version of a container image
 by its tag, you use a colon, `:`, like this:
