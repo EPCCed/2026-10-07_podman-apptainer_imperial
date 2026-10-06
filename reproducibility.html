@@ -414,7 +414,7 @@ reproducibility of my research using containers.</li>
 </div>
 <p>Although this workshop is titled “Reproducible computational
 environments using containers”, so far we have mostly covered the
-mechanics of using Podman with only passing reference to the
+mechanics of using Podman/Apptainer with only passing reference to the
 reproducibility aspects. In this section, we discuss these aspects in
 more detail.</p>
 <div id="work-in-progress" class="callout">
@@ -434,11 +434,10 @@ practices will likely evolve in the near future.</p>
 </div>
 <section><h2 class="section-heading" id="reproducibility">Reproducibility<a class="anchor" aria-label="anchor" href="#reproducibility"></a></h2>
 <hr class="half-width"><p>By <em>reproducibility</em> here we mean the ability of someone else
-(or your future self) being able to reproduce what you did
-computationally at a particular time (be this in research, analysis or
-something else) as closely as possible, even if they do not have access
-to exactly the same hardware resources that you had when you did the
-original work.</p>
+(or your future self) to reproduce what you did computationally at a
+particular time (be this in research, analysis or something else) as
+closely as possible, even if they do not have access to exactly the same
+hardware resources that you had when you did the original work.</p>
 <p>What makes this especially important? With research being
 increasingly digital in nature, more and more of our research outputs
 are a result of the use of software and data processing or analysis.
@@ -584,7 +583,7 @@ disadvantages for each approach.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>This is not an exhaustive list but some of the advantages and
 disadvantages could be:</p>
@@ -616,6 +615,8 @@ work</li>
 <li>Individual parts are smaller in size making them easier to
 distribute</li>
 <li>Avoid dependency issues between different pieces of software</li>
+<li>Easier to update individual pieces of software or tools (e.g. to
+address security vulnerabilites)</li>
 <li>Easier to test</li>
 </ul></li>
 <li>Disadvantage:

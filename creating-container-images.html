@@ -376,7 +376,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Creating Your Own Container Images</h1>
-        <p>Last updated on 2026-10-04 |
+        <p>Last updated on 2026-10-06 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/creating-container-images.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -448,7 +448,7 @@ installed – for example, <code>python3</code>.</p>
 <pre class="output" tabindex="0"><code>sh: python3: not found</code></pre>
 </div>
 <p>Inside the container, we can run commands to install Python 3. The
-Alpine version of Linux has a installation tool called <code>apk</code>
+Alpine version of Linux has an installation tool called <code>apk</code>
 that we can use to install Python 3.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -479,7 +479,7 @@ work?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>A quick search should hopefully show that the way to install R on
 Alpine Linux is:</p>
@@ -547,13 +547,14 @@ CMD &lt;CMD TO RUN BY DEFAULT&gt;</code></pre>
 <ul><li>The first line, <code>FROM</code>, indicates which container image
 we’re starting with. It is the “base” container image we are going to
 start from.</li>
-<li>The next two lines <code>RUN</code>, will indicate installation
-commands we want to run. These are the same commands that we used
-interactively above.</li>
+<li>The next line, <code>RUN</code>, will indicate installation
+command(s) we want to run. These are the same commands that we used
+interactively above. There can be multiple <code>RUN</code> lines to run
+a set of commands.</li>
 <li>The last line, <code>CMD</code>, indicates the default command we
 want a container based on this container image to run, if no other
 command is provided. It is recommended to provide <code>CMD</code> in
-<em>exec-form</em> (see the (see the <a href="https://github.com/containers/common/blob/main/docs/Containerfile.5.md" class="external-link"><code>CMD</code>
+<em>exec form</em> (see the <a href="https://github.com/containers/common/blob/main/docs/Containerfile.5.md" class="external-link"><code>CMD</code>
 section</a> of the documentation of the Containers GitHub for more
 details). It is written as a list which contains the executable to run
 as its first element, optionally followed by any arguments as subsequent
@@ -568,17 +569,16 @@ separated by commas. For example,
 </div>
 <span class="callout-header">Callout</span>
 <div id="shell-form-and-exec-form-for-cmd" class="callout-inner">
-<h3 class="callout-title">
-<em>shell-form</em> and <em>exec-form</em> for
-CMD</h3>
+<h3 class="callout-title">“<em>shell form</em>” and “<em>exec form</em>”
+for CMD</h3>
 <div class="callout-content">
 <p>Another way to specify the parameter for the <a href="https://github.com/containers/common/blob/main/docs/Containerfile.5.md" class="external-link"><code>CMD</code>
-instruction</a> is the <em>shell-form</em>. Here you type the command as
+instruction</a> is the <em>shell form</em>. Here you type the command as
 you would call it from the command line. Podman then silently runs this
-command in the image’s standard shell. The <em>shell-form</em>
-<code>CMD cat /etc/passwd</code> is equivalent to the <em>exec-form</em>
+command in the image’s standard shell. The <em>shell form</em>
+<code>CMD cat /etc/passwd</code> is equivalent to the <em>exec form</em>
 <code>CMD ["/bin/sh", "-c", "cat /etc/passwd"]</code>. We recommend the
-more explicit <em>exec-form</em> because we will be able to create more
+more explicit <em>exec form</em> because we will be able to create more
 flexible container image command options and make sure complex commands
 are unambiguous in this format.</p>
 </div>
@@ -602,7 +602,7 @@ Dockerfile to replicate the installation we did above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution: </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Based on our experience above, edit the <code>Dockerfile</code> (in
 your text editor of choice) to look like this:</p>
@@ -705,7 +705,7 @@ different, like print “hello world”?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><p>To see your new image, run <code>podman image ls</code>. You
 should see the name of your new container image under the “REPOSITORY”
@@ -764,9 +764,7 @@ distributions of Linux often have distinct sets of tools for installing
 software. The <code>apk</code> command we used above is the software
 package installer for Alpine Linux. The installers for various common
 Linux distributions are listed below:
-<ul><li>Ubuntu: <code>apt</code> or <code>apt-get</code>
-</li>
-<li>Debian: <code>deb</code>
+<ul><li>Ubuntu/Debian: <code>apt</code> or <code>apt-get</code>
 </li>
 <li>Alma/Rocky/Fedora: <code>dnf</code>
 </li>
@@ -784,7 +782,7 @@ own computer – these will also work to install things in container
 images (if the basic scripting language is installed).</li>
 <li>
 <strong>README</strong>. Many scientific software tools have a
-README or installation instructions that lay out how to install
+README file or installation instructions that lay out how to install
 software. You want to look for instructions for Linux. If the install
 instructions include options like those suggested above, try those
 first.</li>
@@ -982,7 +980,7 @@ others can create containers from your container images.</li>
   "url": "https://preview.carpentries.org/docker-introduction/creating-container-images.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/creating-container-images.html",
   "dateCreated": "2026-10-06",
-  "dateModified": "2026-10-04",
+  "dateModified": "2026-10-06",
   "datePublished": "2026-10-06"
 }
 

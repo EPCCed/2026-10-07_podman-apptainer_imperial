@@ -464,20 +464,19 @@ going in different directions. The Singularity fork is being developed
 by a commercial entity, <a href="https://sylabs.io/" class="external-link">Sylabs.io</a> who
 provide both the free, open source <a href="https://sylabs.io/singularity" class="external-link">SingularityCE (Community
 Edition)</a> and Pro/Enterprise editions of the software. The original
-open source Singularity project has recently been <a href="https://apptainer.org/news/community-announcement-20211130/" class="external-link">renamed
+open source Singularity project has been <a href="https://apptainer.org/news/community-announcement-20211130/" class="external-link">renamed
 to Apptainer</a> and has moved into the Linux Foundation. While earlier
 versions of this course focused on versions of Singularity released
 before the project fork, we now base the course material on recent
 Apptainer releases. Despite this, the basic features of
 Apptainer/Singularity remain the same and so this material is equally
-applicable whether you’re working with a recent Apptainer release or a
-slightly older Singularity version. Nonetheless, it is useful to be
-aware of this history and that you may see both Apptainer and
-Singularity being used within the research community over the coming
-months and years.</p>
+applicable whether you’re working with a recent Apptainer release or
+SingularityCE. Nonetheless, it is useful to be aware of this history and
+that you may see both Apptainer and Singularity being used within the
+research community over the coming months and years.</p>
 <p>Another point to note is that some systems that have a recent
-Singularity release installed may also provide a <code>apptainer</code>
-command that is simply a link to the <code>singularity</code> executable
+Apptainer release installed may also provide a <code>singularity</code>
+command that is simply a link to the <code>apptainer</code> executable
 on the system. This helps to ensure workflows that use the original
 <code>singularity</code> command can continue to work as intended.</p>
 <p>For now, the remainder of this material refers to Apptainer but where
@@ -608,7 +607,7 @@ you run the <code>ls</code> command, you should see that the
 </div>
 <div class="section level3">
 <h3 id="importing-container-images-from-files">Importing container images from files<a class="anchor" aria-label="anchor" href="#importing-container-images-from-files"></a></h3>
-<p>Earlier, we saw that instead on pushing a container image to an
+<p>Earlier, we saw that instead of pushing a container image to an
 online repository, we can save it to a file (using
 <code>podman save</code>). Apptainer can also import OCI container
 images from files saved by Podman (and Docker) and convert them to SIF
@@ -693,7 +692,7 @@ exits).</td>
 <h3 id="default-action">Default action<a class="anchor" aria-label="anchor" href="#default-action"></a></h3>
 <p>How did the container determine what to do when we ran it? What did
 running the container actually do to result in the displayed output?</p>
-<p>When you run a container from a Apptainer container image using the
+<p>When you run a container from an Apptainer container image using the
 <code>apptainer run</code> command, the container runs the default run
 script that is embedded within the container image. This is a shell
 script that can be used to run commands, tools or applications stored
@@ -720,8 +719,8 @@ be made available on shared systems where access to data is restricted
 as it is for Apptainer - but using a different mechanism.)</p>
 </section><section><h2 class="section-heading" id="users-within-a-apptainer-container">Users within a Apptainer container<a class="anchor" aria-label="anchor" href="#users-within-a-apptainer-container"></a></h2>
 <hr class="half-width"><p>The first thing to note is that if you run <code>whoami</code> within
-a container shell you should have seen the same username that you have
-on the host system when you ran the container.</p>
+a container shell you should see the same username that you have on the
+host system where you ran the container.</p>
 <p>For example, if we download an official Python image, open a terminal
 inside a running container and check our username, we should see it is
 the same as on the HPC system itself. (Note the use of
@@ -824,7 +823,7 @@ you’re running on.</p>
 <h3 class="callout-title">Files in Singularity containers</h3>
 <div class="callout-content">
 <p><strong>Q1:</strong> What do you notice about the ownership of files
-in a container started from the <code>lolcow.sif</code> image?
+in a container started from the <code>python-slim.sif</code> image?
 (e.g. take a look at the ownership of files in the root directory
 (<code>/</code>) and your home directory (<code>~/</code>)).</p>
 <p><strong>Exercise 1:</strong> In this container, try creating a file
@@ -853,13 +852,17 @@ and the container shuts down?</p>
 detailed file listing including file ownership and permission details.
 You should see that most of the files in the <code>/</code> directory
 are owned by <code>root</code>, as you would probably expect on any
-Linux system. If you look at the files in your home directory, they
-should be owned by you.</p>
+Linux system (although this depends on the Apptainer
+version/configuration and you may see many of the files owned by your
+own user). If you look at the files in your home directory, they should
+be owned by you.</p>
 <p><strong>A Ex1:</strong> We’ve already seen from the previous answer
-that the files in <code>/</code> are owned by <code>root</code> so we
-would not expect to be able to create files there if we’re not the root
-user. However, if you tried to remove <code>/singularity</code> you
-would have seen an error similar to the following:
+that the files in <code>/</code> are likely to be owned by
+<code>root</code>, however, even if that’s not the case, we wouldn’t
+expect to be able to create files in the ‘/’ directory on a Linux system
+if we’re not the root user. However, if you tried to remove
+<code>/singularity</code> you would have seen an error similar to the
+following:
 <code>cannot remove '/singularity': Read-only file system</code>. This
 tells us something else about the filesystem. It’s not just that we do
 not have permission to delete the file, the filesystem itself is

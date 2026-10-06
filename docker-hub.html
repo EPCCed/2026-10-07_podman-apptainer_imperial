@@ -372,7 +372,7 @@
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Finding Containers on a Registry</h1>
-        <p>Last updated on 2026-06-17 |
+        <p>Last updated on 2026-10-06 |
 
         <a href="https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/edit/main/episodes/docker-hub.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -411,9 +411,10 @@ identifier.</li>
 </div>
 </div>
 <p>In the previous episode, we ran a few different containers derived
-from different container images: <code>hello-world</code>,
-<code>alpine</code>, and maybe <code>ubuntu</code>. Where did these
-container images come from? The Docker Hub!</p>
+from different container images - these included:
+<code>hello-world</code>, <code>alpine</code>, and maybe
+<code>ubuntu</code>. Where did these specific container images come
+from? The Docker Hub!</p>
 <section><h2 class="section-heading" id="introducing-the-docker-hub">Introducing the Docker Hub<a class="anchor" aria-label="anchor" href="#introducing-the-docker-hub"></a></h2>
 <hr class="half-width"><p>The Docker Hub is an online repository of container images, a vast
 number of which are publicly available. A large number of the container
@@ -423,12 +424,18 @@ into images are officially endorsed, which means that you can trust the
 container images to have been checked for functionality, stability, and
 that they don’t contain malware.</p>
 <p>Other registries do exist. If Podman is used to pull the
-<code>hello-world</code> image with no further information, as we did
-earlier, it will be retrieved from <a href="https://quay.io/" class="external-link">Quay</a>.
-Other popular registries are <a href="https://goharbor.io/" class="external-link">Harbor</a>
-and the GitHub Container Registry . It is also possible to set up a
-local registry using Podman itself or products like Harbor or Quay.
-These may be specialised for use by a particular organisation.</p>
+<code>hello</code> image with no further information, as we did earlier,
+it will be retrieved from <a href="https://quay.io/" class="external-link">Quay</a>. <em>Note
+that with Podman’s default configuration, both <code>hello</code> and
+<code>hello-world</code> are configured as aliases for Podman’s
+<code>hello</code> image stored on Quay. Docker also has its own
+<code>hello-world</code> image which is stored on Docker Hub. We also
+pulled this image in an earlier example by using the alias
+<code>docker.io/hello-world</code></em>.</p>
+<p>Other popular registries are <a href="https://goharbor.io/" class="external-link">Harbor</a> and the <a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry" class="external-link">GitHub
+Container Registry</a>. It is also possible to set up a local registry
+using Podman itself or products like Harbor or Quay. These may be
+specialised for use by a particular organisation.</p>
 <div id="podman-can-be-used-without-connecting-to-the-docker-hub" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -440,8 +447,9 @@ Docker Hub</h3>
 <div class="callout-content">
 <p>Note that while the Docker Hub is well integrated into Podman
 functionality, the Docker Hub is certainly not required for all types of
-use of containers. For example, some organizations may run container
-infrastructure that is entirely disconnected from the Internet.</p>
+use of containers. For example, some organizations may run their own
+local container infrastructure that is entirely disconnected from the
+Internet.</p>
 </div>
 </div>
 </div>
@@ -454,16 +462,16 @@ to see what is on a typical Docker Hub software page.</p>
 <p>The top-left provides information about the name, short description,
 popularity (i.e., more than a billion downloads in the case of this
 container image), and endorsements.</p>
-<p>The top-right provides the command to pull this container image to
-your computer.</p>
-<p>The main body of the page contains many used headings, such as:</p>
+<p>On the right hand side of the page, within the “Tag summary” box, is
+the command to pull this container image to your computer.</p>
+<p>The main body of the page contains many sections, such as:</p>
 <ul><li>Which tags (i.e., container image versions) are supported;</li>
 <li>Summary information about where to get help, which computer
 architectures are supported, etc.;</li>
 <li>A longer description of the container image;</li>
 <li>Examples of how to use the container image; and</li>
 <li>The license that applies.</li>
-</ul><p>The “How to use the image” section of most container images’ pages
+</ul><p>The “How to use this image” section of most container images’ pages
 will provide examples that are likely to cover your intended use of the
 container image.</p>
 <div id="other-container-registries" class="callout">
@@ -483,10 +491,10 @@ on Quay.</p>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="exploring-container-image-versions">Exploring Container Image Versions<a class="anchor" aria-label="anchor" href="#exploring-container-image-versions"></a></h2>
-<hr class="half-width"><p>Registries will often provide many different versions of container
-images, based on the version of the software inside. These versions are
-indicated by “tags”. When referring to the specific version of a
-container image by its tag, you use a colon, <code>:</code>, like
+<hr class="half-width"><p>Registries will often provide many different versions of a given
+container image, based on the version of the software inside. These
+versions are indicated by “tags”. When referring to the specific version
+of a container image by its tag, you use a colon, <code>:</code>, like
 this:</p>
 <pre><code><span><span class="va">CONTAINER_IMAGE_NAME</span><span class="op">:</span><span class="va">TAG</span></span></code></pre>
 <p>So if I wanted to download the <code>python</code> container image,
@@ -592,7 +600,7 @@ command is sufficient.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>First, search for <code>rocker</code> in Docker Hub. Then look for
 their <code>tidyverse</code> container image. You can look at the list
@@ -736,7 +744,7 @@ Docker Hub, when using Podman, is:
   "url": "https://preview.carpentries.org/docker-introduction/docker-hub.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/docker-hub.html",
   "dateCreated": "2026-10-06",
-  "dateModified": "2026-06-17",
+  "dateModified": "2026-10-06",
   "datePublished": "2026-10-06"
 }
 

@@ -438,13 +438,13 @@ Apptainer container image.)</p>
 </div>
 </div>
 <section><h2 class="section-heading" id="download-the-required-data">Download the required data<a class="anchor" aria-label="anchor" href="#download-the-required-data"></a></h2>
-<hr class="half-width"><p>Download the <a href="https://epcced.github.io/2026-10-07_podman-apptainer_imperial/raw/refs/heads/gh-pages/files/blast_example.tar.gz" class="external-link">blast_example.tar.gz</a>.</p>
+<hr class="half-width"><p>Download the <a href="https://epcced.github.io/https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/raw/refs/heads/main/episodes/files/blast_example.tar.gz" class="external-link">blast_example.tar.gz</a>.</p>
 <p>Unpack the archive which contains the downloaded data required for
 the BLAST+ example:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="ex">remote$</span> wget https://epcced.github.io/2026-10-07_podman-apptainer_imperial/raw/refs/heads/gh-pages/files/blast_example.tar.gz</span>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="ex">remote$</span> wget https://github.com/EPCCed/2026-10-07_podman-apptainer_imperial/raw/refs/heads/main/episodes/files/blast_example.tar.gz</span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1" aria-label="code-block-1-2"></a><span class="ex">remote$</span> tar <span class="at">-xvf</span> blast_example.tar.gz</span></code></pre>
 </div>
 <div class="codewrapper">
@@ -473,8 +473,8 @@ x blast/queries/P01349.fsa</code></pre>
 </div>
 </section><section><h2 class="section-heading" id="create-the-apptainer-container-image">Create the Apptainer container image<a class="anchor" aria-label="anchor" href="#create-the-apptainer-container-image"></a></h2>
 <hr class="half-width"><p>NCBI provide official Docker containers with the BLAST+ software
-hosted on Docker Hub. We can create a Apptainer container image from the
-Docker container image with:</p>
+hosted on Docker Hub. We can create an Apptainer container image from
+the Docker container image with:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -485,56 +485,19 @@ Docker container image with:</p>
 </h3>
 <pre class="output" tabindex="0"><code>INFO:    Converting OCI blobs to SIF format
 INFO:    Starting build...
-Getting image source signatures
-Copying blob f3b81f6693c5 done
-Copying blob 9e3ea8720c6d done
-Copying blob f1910abb61ed done
-Copying blob 5ac33d4de47b done
-Copying blob 8402427c8382 done
-Copying blob 06add1a477bc done
-Copying blob d9781f222125 done
-Copying blob 4aae31cc8a8b done
-Copying blob 6a61413c1ffa done
-Copying blob c657bf8fc6ca done
-Copying blob 1776e565f5f8 done
-Copying blob d90474a0d8c8 done
-Copying blob 0bc89cb1b9d7 done
-Copying blob b8a272fccf13 done
-Copying blob 891eb09f891f done
-Copying blob 4c64befa8a35 done
-Copying blob 7ab0b7afbc21 done
-Copying blob b007c620c60b done
-Copying blob f877ffc04713 done
-Copying blob 6ee97c348001 done
-Copying blob 03f0ee97190b done
-Copying config 28914b3519 done
-Writing manifest to image destination
-Storing signatures
-2023/06/16 08:26:53  info unpack layer: sha256:9e3ea8720c6de96cc9ad544dddc695a3ab73f5581c5d954e0504cc4f80fb5e5c
-2023/06/16 08:26:53  info unpack layer: sha256:06add1a477bcffec8bac0529923aa8ae25d51f0660f0c8ef658e66aa89ac82c2
-2023/06/16 08:26:53  info unpack layer: sha256:f3b81f6693c592ab94c8ebff2109dc60464d7220578331c39972407ef7b9e5ec
-2023/06/16 08:26:53  info unpack layer: sha256:5ac33d4de47beb37ae35e9cad976d27afa514ab8cbc66e0e60c828a98e7531f4
-2023/06/16 08:27:03  info unpack layer: sha256:8402427c8382ab723ac504155561fb6d3e5ea1e7b4f3deac8449cec9e44ae65a
-2023/06/16 08:27:03  info unpack layer: sha256:f1910abb61edef8947e9b5556ec756fd989fa13f329ac503417728bf3b0bae5e
-2023/06/16 08:27:03  info unpack layer: sha256:d9781f222125b5ad192d0df0b570f75b797b2ab1dc0d82064c1b6cead04840
-2023/06/16 08:27:03  info unpack layer: sha256:4aae31cc8a8b726dce085e4e2dc4671a9be28162b8d4e1b1c00b8754f14e6fe6
-2023/06/16 08:27:03  info unpack layer: sha256:6a61413c1ffa309d92931265a5b0ecc9448568f13ccf3920e16aaacc8fdfc671
-2023/06/16 08:27:03  info unpack layer: sha256:c657bf8fc6cae341e3835cb101dc4c6839ba4aad69578ff8538b3c1eba7abb21
-2023/06/16 08:27:04  info unpack layer: sha256:1776e565f5f85562b8601edfd29c35f3fba76eb53177c8e89105f709387e3627
-2023/06/16 08:27:04  info unpack layer: sha256:d90474a0d8c8e6165d909cc0ebbf97dbe70fd759a93eff11a5a3f91fa09a470e
-2023/06/16 08:27:04  warn rootless{root/edirect/aux/lib/perl5/Mozilla/CA/cacert.pem} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
-2023/06/16 08:27:04  warn rootless{root/edirect/aux/lib/perl5/Mozilla/CA.pm} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
-2023/06/16 08:27:04  warn rootless{root/edirect/aux/lib/perl5/Mozilla/mk-ca-bundle.pl} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
-2023/06/16 08:27:04  info unpack layer: sha256:0bc89cb1b9d7ca198a7a1b95258006560feffaff858509be8eb7388b315b9cf5
-2023/06/16 08:27:04  info unpack layer: sha256:b8a272fccf13b721fa68826f17f0c2bb395de377e0d22c98d38748eb5957a4c6
-2023/06/16 08:27:04  info unpack layer: sha256:891eb09f891ff2c26f24a5466112e134f6fb30bd3d0e78c14c0d676b0e68d60a
-2023/06/16 08:27:04  info unpack layer: sha256:4c64befa8a35c9f8518324524dfc27966753462a4c07b2234811865387058bf4
-2023/06/16 08:27:04  info unpack layer: sha256:7ab0b7afbc21b75697a7b8ed907ee9b81e5b17a04895dc6ff7d25ea2ba1eeba4
-2023/06/16 08:27:04  info unpack layer: sha256:b007c620c60b91ce6a9e76584ecc4bc062c822822c204d8c2b1c8668193d44d1
-2023/06/16 08:27:04  info unpack layer: sha256:f877ffc04713a03dffd995f540ee13b65f426b350cdc8c5f1e20c290de129571
-2023/06/16 08:27:04  info unpack layer: sha256:6ee97c348001fca7c98e56f02b787ce5e91d8cc7af7c7f96810a9ecf4a833504
-2023/06/16 08:27:04  info unpack layer: sha256:03f0ee97190baebded2f82136bad72239254175c567b19def105b755247b0193
-INFO:    Creating SIF file...</code></pre>
+INFO:    Fetching OCI image...
+29.0MiB / 29.0MiB [=========================================================================================================================================================================] 100 % 22.2 MiB/s 0s
+14.8MiB / 14.8MiB [=========================================================================================================================================================================] 100 % 22.2 MiB/s 0s
+50.4MiB / 50.4MiB [=========================================================================================================================================================================] 100 % 22.2 MiB/s 0s
+448.8KiB / 448.8KiB [=======================================================================================================================================================================] 100 % 22.2 MiB/s 0s
+40.9MiB / 40.9MiB [=========================================================================================================================================================================] 100 % 22.2 MiB/s 0s
+150.7MiB / 150.7MiB [=======================================================================================================================================================================] 100 % 22.2 MiB/s 0s
+22.7MiB / 22.7MiB [=========================================================================================================================================================================] 100 % 22.2 MiB/s 0s
+49.1MiB / 49.1MiB [=========================================================================================================================================================================] 100 % 22.2 MiB/s 0s
+INFO:    Extracting OCI image...
+INFO:    Inserting Apptainer configuration...
+INFO:    Creating SIF file...
+[======================================================================================================================================================================================================] 100 % 0s</code></pre>
 </div>
 <p>Now we have a container with the software in, we can use it.</p>
 </section><section><h2 class="section-heading" id="build-and-verify-the-blast-database">Build and verify the BLAST database<a class="anchor" aria-label="anchor" href="#build-and-verify-the-blast-database"></a></h2>
@@ -553,13 +516,13 @@ database by using a container to run the command
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>Building a new DB, current time: 06/16/2023 14:35:07
+<pre class="output" tabindex="0"><code>Building a new DB, current time: 10/06/2026 14:05:20
 New DB name:   /home/auser/test/blast/blast/nurse-shark-proteins
 New DB title:  Nurse shark proteins
 Sequence type: Protein
 Keep MBits: T
 Maximum file size: 3000000000B
-Adding sequences from FASTA; added 7 sequences in 0.0199499 seconds.
+Adding sequences from FASTA; added 7 sequences in 0.021101 seconds.
 </code></pre>
 </div>
 <div id="callout2" class="callout">
@@ -658,15 +621,16 @@ databases are available online in the Google Compute Platform (GCP):</p>
 </h3>
 <pre class="output" tabindex="0"><code>Connected to GCP
 BLASTDB                                                      DESCRIPTION                                                                                                              SIZE (GB)      LAST_UPDATED
-nr                                                           All non-redundant GenBank CDS translations+PDB+SwissProt+PIR+PRF excluding environmental samples from WGS projects        369.4824      2023-06-10
-swissprot                                                    Non-redundant UniProtKB/SwissProt sequences                                                                                 0.3576      2023-06-10
-refseq_protein                                               NCBI Protein Reference Sequences                                                                                          146.5088      2023-06-12
-landmark                                                     Landmark database for SmartBLAST                                                                                            0.3817      2023-04-25
-pdbaa                                                        PDB protein database                                                                                                        0.1967      2023-06-10
-nt                                                           Nucleotide collection (nt)                                                                                                319.5044      2023-06-11
-pdbnt                                                        PDB nucleotide database                                                                                                     0.0145      2023-06-09
-patnt                                                        Nucleotide sequences derived from the Patent division of GenBank                                                           15.7342      2023-06-09
-refseq_rna                                                   NCBI Transcript Reference Sequences                                                                                        47.8721      2023-06-12
+nr                                                           All non-redundant GenBank CDS translations+PDB+SwissProt+PIR+PRF excluding environmental samples from WGS projects        753.9510      2026-09-27
+swissprot                                                    Non-redundant UniProtKB/SwissProt sequences                                                                                 0.3659      2026-09-15
+refseq_protein                                               NCBI Protein Reference Sequences                                                                                          257.3614      2026-08-27
+landmark                                                     Landmark database for SmartBLAST                                                                                            0.4693      2025-08-06
+pdbaa                                                        PDB protein database                                                                                                        0.2615      2026-09-29
+nt                                                           Nucleotide collection (nt)                                                                                               1199.4928      2026-09-24
+core_nt                                                      Core nucleotide BLAST database                                                                                            301.4805      2026-09-19
+pdbnt                                                        PDB nucleotide database                                                                                                     0.0155      2026-09-24
+patnt                                                        Nucleotide sequences derived from the Patent division of GenBank                                                           19.2072      2026-09-19
+refseq_rna                                                   NCBI Transcript Reference Sequences                                                                                        80.1543      2026-09-16
 
 ...output trimmed...</code></pre>
 </div>
@@ -681,14 +645,17 @@ refseq_rna                                                   NCBI Transcript Ref
 </h3>
 <pre class="output" tabindex="0"><code>Connected to NCBI
 BLASTDB                                                      DESCRIPTION                                                                                                              SIZE (GB)      LAST_UPDATED
-env_nr                                                       Proteins from WGS metagenomic projects (env_nr).                                                                            3.9459      2023-06-11
-SSU_eukaryote_rRNA                                           Small subunit ribosomal nucleic acid for Eukaryotes                                                                         0.0063      2022-12-05
-LSU_prokaryote_rRNA                                          Large subunit ribosomal nucleic acid for Prokaryotes                                                                        0.0041      2022-12-05
-16S_ribosomal_RNA                                            16S ribosomal RNA (Bacteria and Archaea type strains)                                                                       0.0178      2023-06-16
-env_nt                                                       environmental samples                                                                                                      48.8599      2023-06-08
+18S_fungal_sequences                                         18S ribosomal RNA sequences (SSU) from Fungi type and reference material                                                    0.0026      2026-10-03
+Betacoronavirus                                              Betacoronavirus                                                                                                            71.0289      2025-06-26
+28S_fungal_sequences                                         28S ribosomal RNA sequences (LSU) from Fungi type and reference material                                                    0.0072      2026-10-03
+16S_ribosomal_RNA                                            16S ribosomal RNA (Bacteria and Archaea type strains)                                                                       0.0184      2026-10-03
+ITS_RefSeq_Fungi                                             Internal transcribed spacer region (ITS) from Fungi type and reference material                                             0.0091      2026-10-05
+ITS_eukaryote_sequences                                      ITS eukaryote BLAST                                                                                                         0.0344      2026-10-05
 LSU_eukaryote_rRNA                                           Large subunit ribosomal nucleic acid for Eukaryotes                                                                         0.0053      2022-12-05
-ITS_RefSeq_Fungi                                             Internal transcribed spacer region (ITS) from Fungi type and reference material                                             0.0067      2022-10-28
-Betacoronavirus                                              Betacoronavirus                                                                                                            55.3705      2023-06-16
+LSU_prokaryote_rRNA                                          Large subunit ribosomal nucleic acid for Prokaryotes                                                                        0.0041      2022-12-05
+SSU_eukaryote_rRNA                                           Small subunit ribosomal nucleic acid for Eukaryotes                                                                         0.0063      2022-12-05
+env_nt                                                       environmental samples                                                                                                       0.4413      2026-09-16
+env_nr                                                       Proteins from WGS metagenomic projects (env_nr).                                                                            4.4552      2026-09-30
 
 ...output trimmed...</code></pre>
 </div>
