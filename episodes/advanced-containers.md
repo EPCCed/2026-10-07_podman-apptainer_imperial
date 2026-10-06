@@ -174,9 +174,9 @@ and will stay there even when the container stops.
 Podman run has many other useful flags to alter its function.
 A couple that are commonly used include `-w` and `-u`.
 
-The `--workdir`/`-w` flag sets the working directory a.k.a. runs the command
+The `--workdir`/`-w` flag sets the working directory i.e. it runs the command
 being executed inside the directory specified.
-For example, the following code would run the `pwd` command in a container
+For example, the following command would run the `pwd` command in a container
 started from the latest ubuntu image in the `/home/ubuntu` directory and print
 `/home/ubuntu`. Podman requires the working directory specified to already
 exist in the image.

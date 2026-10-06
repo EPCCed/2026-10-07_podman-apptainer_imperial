@@ -49,7 +49,7 @@ sh: python3: not found
 ```
 
 Inside the container, we can run commands to install Python 3. The Alpine version of
-Linux has a installation tool called `apk` that we can use to install Python 3.
+Linux has an installation tool called `apk` that we can use to install Python 3.
 
 ```bash
 /# apk add --update python3 py3-pip python3-dev
@@ -130,12 +130,11 @@ CMD <CMD TO RUN BY DEFAULT>
 Let's break this file down:
 
 - The first line, `FROM`, indicates which container image we're starting with.  It is the "base" container image we are going to start from.
-- The next two lines `RUN`, will indicate installation commands we want to run. These
-  are the same commands that we used interactively above.
+- The next line, `RUN`, will indicate installation command(s) we want to run. These
+  are the same commands that we used interactively above. There can be multiple `RUN` lines to run a set of commands. 
 - The last line, `CMD`, indicates the default command we want a
   container based on this container image to run, if no other command is provided. It is recommended
-  to provide `CMD` in *exec-form* (see the
-  (see the [`CMD` section](https://github.com/containers/common/blob/main/docs/Containerfile.5.md)
+  to provide `CMD` in *exec form* (see the [`CMD` section](https://github.com/containers/common/blob/main/docs/Containerfile.5.md)
   of the documentation of the Containers GitHub for more details). It is written as a
   list which contains the executable to run as its first element,
   optionally followed by any arguments as subsequent elements. The list
@@ -146,15 +145,15 @@ Let's break this file down:
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## *shell-form* and *exec-form* for CMD
+## "*shell form*" and "*exec form*" for CMD
 
 Another way to specify the parameter for the
 [`CMD` instruction](https://github.com/containers/common/blob/main/docs/Containerfile.5.md)
-is the *shell-form*. Here you type the command as you would call it
+is the *shell form*. Here you type the command as you would call it
 from the command line. Podman then silently runs this command in the
-image's standard shell. The *shell-form* `CMD cat /etc/passwd` is equivalent to
-the *exec-form* `CMD ["/bin/sh", "-c", "cat /etc/passwd"]`. We recommend the
-more explicit *exec-form* because we will be able to create more
+image's standard shell. The *shell form* `CMD cat /etc/passwd` is equivalent to
+the *exec form* `CMD ["/bin/sh", "-c", "cat /etc/passwd"]`. We recommend the
+more explicit *exec form* because we will be able to create more
 flexible container image command options and make sure complex commands
 are unambiguous in this format.
 
@@ -308,8 +307,7 @@ Here are some things to consider when creating your own container image:
   lean towards using smaller starting container images and installing only what's needed for
   your software, as a bigger container image means longer download times to use.
 - **Know (or Google) your Linux**. Different distributions of Linux often have distinct sets of tools for installing software. The `apk` command we used above is the software package installer for Alpine Linux. The installers for various common Linux distributions are listed below:
-  - Ubuntu: `apt` or `apt-get`
-  - Debian: `deb`
+  - Ubuntu/Debian: `apt` or `apt-get`
   - Alma/Rocky/Fedora: `dnf`
   - SUSE: `zypper`  
     Most common software installations are available to be installed via these tools.
@@ -319,7 +317,7 @@ Here are some things to consider when creating your own container image:
 - **Use what you know**. You've probably used commands like `pip` or `install.packages()`
   before on your own computer -- these will also work to install things in container images (if the basic scripting
   language is installed).
-- **README**. Many scientific software tools have a README or installation instructions
+- **README**. Many scientific software tools have a README file or installation instructions
   that lay out how to install software. You want to look for instructions for Linux. If
   the install instructions include options like those suggested above, try those first.
 
