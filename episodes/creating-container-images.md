@@ -412,7 +412,7 @@ image) using the `podman image load` command. If the image has been compressed, 
 will automatically uncompress it as it loads it.
 
 Alice has transferred the `alpine-python.tar` file to a different system (which also has 
-Podman available) and she makes ti available to use by loading the container image file:
+Podman available) and she makes it available to use by loading the container image file:
 
 ```bash
 $ podman image load -i alpine-python.tar
